@@ -18,6 +18,16 @@ To get started, checkout http://beemuse.com!
 
 
 
+Authors
+-------
+
+**Elise Roberts**
+
++ http://twitter.com/itmustbe
++ http://github.com/itmustbe
+
+
+
 Copyright and license
 ---------------------
 

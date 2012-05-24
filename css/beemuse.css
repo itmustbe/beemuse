@@ -1,0 +1,111 @@
+/*
+ * Beemuse for Bootstrap v2.0.3
+ *
+ * Copyright 2012 ITMUSTBE, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the buzz in the world @itmustbe
+ */
+body {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.flipper {
+  position: relative;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  -o-perspective: 1000;
+  -perspective: 1000;
+}
+.flipper .flip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-transition: 0.75s;
+  -moz-transition: 0.75s;
+  -ms-transition: 0.75s;
+  -o-transition: 0.75s;
+  transition: 0.75s;
+}
+.flipper .front {
+  z-index: 5;
+}
+.flipper .back {
+  z-index: 0;
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+.flipper:hover .front {
+  z-index: 5;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.flipper:hover .back {
+  z-index: 10;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.stitch {
+  position: relative;
+  z-index: 0;
+  padding: 19px;
+  border: 1px solid #dddddd;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 0 0 #9a9a9a;
+  -moz-box-shadow: 0 1px 0 0 #9a9a9a;
+  box-shadow: 0 1px 0 0 #9a9a9a;
+  background-color: #f8f8f8;
+  background-image: -moz-linear-gradient(top, white, #eeeeee);
+  background-image: -ms-linear-gradient(top, white, #eeeeee);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#eeeeee));
+  background-image: -webkit-linear-gradient(top, white, #eeeeee);
+  background-image: -o-linear-gradient(top, white, #eeeeee);
+  background-image: linear-gradient(top, white, #eeeeee);
+  background-repeat: repeat-x;
+  margin-bottom: 20px;
+}
+.stitch p:last-child {
+  margin-bottom: 0;
+}
+
+.stitch:before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  border: 1px dashed #cccccc;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 0 0 1px white;
+  -moz-box-shadow: 0 0 0 1px white;
+  box-shadow: 0 0 0 1px white;
+}

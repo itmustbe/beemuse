@@ -1,0 +1,21 @@
+/*!
+ * Beemuse for Bootstrap v2.0.3
+ *
+ * Copyright 2012 ITMUSTBE, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the buzz in the world @itmustbe
+ */
+
+// Body Setup 
+body {
+ padding-top: 60px; // 60px to make the container go all the way to the bottom of the top navbar
+ padding-bottom: 60px; // 60px to make the container go all the way to the top of the bottom navbar
+}
+
+// 3D Flips
+@import "3dflips";
+
+// Stitches
+@import "stitches";

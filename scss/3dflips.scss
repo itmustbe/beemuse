@@ -1,0 +1,31 @@
+@import "mixins";
+
+// 3D Flips
+
+.flipper {
+  position: relative;
+  @include perspective;
+  .flip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include transform;
+    @include backface;
+    @include transition(0.75s);
+  }
+  .front {
+    z-index: 5;
+  }
+  .back {
+    z-index: 0;
+    @include rotateY(-180deg);
+  }
+  &:hover .front {
+    z-index: 5;
+    @include rotateY(180deg);
+  }
+  &:hover .back {
+    z-index: 10;
+    @include rotateY(0deg);
+  }
+}

@@ -1,0 +1,15 @@
+@import "mixins";
+
+// Stitches
+
+.stitch {
+  @include stitch-container(19px, 8px, #ddd, #9a9a9a);
+  @include gradient(#fff, #eee);
+  margin-bottom: 20px;
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+.stitch:before {
+  @include stitch-effect(#ccc, #fff, 3px, 6px);
+}

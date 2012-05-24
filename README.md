@@ -3,9 +3,9 @@ Beemuse for [Twitter Bootstrap](http://twitter.github.com/bootstrap)
 
 Beemuse provides simple HTML, CSS, and Javascript components to add to any Bootstrap-based site.
 
-The 3D Flips component can be applied to any element, including Bootstrap thumbnails.
+The 3D Flips component can be applied to any element, including Bootstrap [thumbnails](http://twitter.github.com/bootstrap/components.html#thumbnails).
 
-The Stitches component can be used similarly to Bootstrap wells.
+The Stitches component can be used similarly to Bootstrap [wells](http://twitter.github.com/bootstrap/components.html#misc).
 
 
 
@@ -19,7 +19,7 @@ Clone the repo, `git clone git@github.com:itmustbe/beemuse.git`
 Copyright and license
 ---------------------
 
-Copyright 2012 Twitter, Inc.
+Copyright 2012 ITMUSTBE, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.

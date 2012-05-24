@@ -14,6 +14,8 @@ Quick start
 
 Clone the repo, `git clone git@github.com:itmustbe/beemuse.git`
 
+To get started, checkout http://beemuse.com!
+
 
 
 Copyright and license

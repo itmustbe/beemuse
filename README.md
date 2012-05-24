@@ -18,12 +18,11 @@ To get started, checkout http://beemuse.com!
 
 
 
-Authors
--------
+Author
+------
 
 **Elise Roberts**
 
-+ http://twitter.com/itmustbe
 + http://github.com/itmustbe
 
 

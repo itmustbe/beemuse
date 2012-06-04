@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Stitched containers component for Bootstrap</title>
+    <title>Paper effects component for Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -38,8 +38,8 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="/">Home</a></li>
-              <li><a href="paper">Paper</a></li>
-              <li class="active"><a href="stitches">Stitches</a></li>
+              <li class="active"><a href="paper">Paper</a></li>
+              <li><a href="stitches">Stitches</a></li>
               <li><a href="3dflips">3D Flips</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -70,24 +70,41 @@
 
     <div class="container">
 
-      <h2>Stitches</h2>
+      <h2>Paper</h2>
 
       <div class="row">
-        <div class="span4">
-          <div class="stitch">
-            <p>Some ordinary text</p>
-          </div>
-        </div> <!-- /span -->
-        <div class="span4">
-          <div class="stitch">
-            <p>Some ordinary text</p>
-          </div>
-        </div> <!-- /span -->
-        <div class="span4">
-          <div class="stitch">
-            <p>Quite a bit more ordinary text... this is, after all, a perfectly normal div. It'll stretch as far as it can. How far is that? No one knows for sure...</p>
-          </div>
-        </div> <!-- /span -->
+            <div class="span3">
+              <div class="drop-shadow lifted">
+                <p>Lifted corners</p>
+              </div>
+              <div class="drop-shadow curled">
+                <p>Curled corners</p>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="drop-shadow perspective">
+                <p>Perspective</p>
+              </div>
+               <div class="drop-shadow raised">
+                <p>Raised box</p>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="drop-shadow curved curved-vt-1">
+                <p>Single vertical curve</p>
+              </div>
+              <div class="drop-shadow curved curved-vt-2">
+                <p>Vertical curves</p>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="drop-shadow curved curved-hz-1">
+                <p>Single horizontal curve</p>
+              </div>
+              <div class="drop-shadow curved curved-hz-2">
+                <p>Horizontal curves</p>
+              </div>
+            </div>
       </div> <!-- /row -->
 
       <div class="row">
@@ -95,25 +112,20 @@
           <h3>Usage</h3>
           <div class="well">
             <p>
-              Requires relative or absolute positioned parent with z-index of 0. These settings 
-              typically work but special cases (such as combining with 3D Flips) may require adjustments.
+              Requires relative or absolute positioned parent.
             </p>
             <p>
-              No IE7 support (no :before or :after pseudo-elements). Note that this gradient as 
-              implemented supports IE10 (IE9 and under will get a nice mix of the two colors).
-              Check Bootstrap mixins.less for an up-to-date vertical gradient mixin.
+              No IE7 support (no :before or :after pseudo-elements).
             </p>
             <p>
-              Credit: <a href="http://www.red-team-design.com">Red Team Design</a> (tweaked a bit)
+              Credit: <a href="http://nicolasgallagher.com/css-drop-shadows-without-images">Nicolas Gallagher</a> (tweaked a bit)
             </p>
           </div> <!-- /well -->
         </div> <!-- /span -->
         <div class="span6">
           <h3>HTML</h3>
 <pre class="prettyprint linenums">
-&lt;div class="stitch"&gt;
-  ...
-&lt;/div&gt;
+...
 </pre>
         </div> <!-- /span -->
       </div> <!-- /row -->
@@ -122,57 +134,13 @@
         <div class="span6">
           <h3>SCSS</h3>
 <pre class="prettyprint linenums">
-.stitch {
-  // set container padding, border-radius, border-color, box-shadow
-  @include stitch-container(19px, 8px, #ddd, #9a9a9a);
-  // set container background-color as gradient (top, bottom)
-  @include gradient(#fff, #eee);
-  // set bottom margin (and padding) like BS wells.less
-  margin-bottom: 20px;
-  // remove BS 9px margin on last paragraph
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-.stitch:before {
-  // set stitch color, highlight, offset, border-radius
-  @include stitch-effect(#ccc, #fff, 3px, 6px);
-}
+...
 </pre>
         </div> <!-- /span -->
         <div class="span6">
           <h3>SCSS Mixins</h3>
 <pre class="prettyprint linenums">
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-          border-radius: $radius;
-}
-@mixin box-shadow($shadow) {
-  -webkit-box-shadow: $shadow;
-     -moz-box-shadow: $shadow;
-          box-shadow: $shadow;
-}
-@mixin stitch-container($padding, $radius, $color, $shadow) {
-  position: relative;
-  z-index: 0;
-  padding: $padding;
-  border: 1px solid $color;
-  @include border-radius($radius);
-  @include box-shadow(0 1px 0 0 $shadow);
-}
-@mixin stitch-effect($color, $highlight, $offset, $radius) {
-  content: '';
-  z-index: -1;
-  position: absolute;
-  border: 1px dashed $color;
-  top: $offset;
-  bottom: $offset;
-  left: $offset;
-  right: $offset;
-  @include border-radius($radius);
-  @include box-shadow(0 0 0 1px $highlight);
-}
+...
 </pre>
         </div> <!-- /span -->
       </div> <!-- /row -->
@@ -181,57 +149,13 @@
         <div class="span6">
           <h3>LESS</h3>
 <pre class="prettyprint linenums">
-.stitch {
-  // set container padding, border-radius, border-color, box-shadow
-  .stitch-container(19px, 8px, #ddd, #9a9a9a);
-  // set container background-color as gradient (top, bottom)
-  .gradient(#fff, #eee);
-  // set bottom margin (and padding) like BS wells.less
-  margin-bottom: 20px;
-  // remove BS 9px margin on last paragraph
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-.stitch:before {
-  // set stitch color, highlight, offset, border-radius
-  .stitch-effect(#ccc, #fff, 3px, 6px);
-}
+...
 </pre>
         </div> <!-- /span -->
         <div class="span6">
           <h3>LESS Mixins</h3>
 <pre class="prettyprint linenums">
-.border-radius(@radius) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
-}
-.box-shadow(@shadow) {
-  -webkit-box-shadow: @shadow;
-     -moz-box-shadow: @shadow;
-          box-shadow: @shadow;
-}
-.stitch-container(@padding, @radius, @color, @shadow) {
-  position: relative;
-  z-index: 0;
-  padding: @padding;
-  border: 1px solid @color;
-  .border-radius(@radius);
-  .box-shadow(0 1px 0 0 @shadow);
-}
-.stitch-effect(@color, @highlight, @offset, @radius) {
-  content: '';
-  z-index: -1;
-  position: absolute;
-  border: 1px dashed @color;
-  top: @offset;
-  bottom: @offset;
-  left: @offset;
-  right: @offset;
-  .border-radius(@radius);
-  .box-shadow(0 0 0 1px @highlight);
-}
+...
 </pre>
         </div> <!-- /span -->
       </div> <!-- /row -->

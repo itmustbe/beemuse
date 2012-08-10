@@ -110,8 +110,7 @@ body {
   box-shadow: 0 0 0 1px white;
 }
 
-/* Shared styles */
-.drop-shadow {
+.paper {
   position: relative;
   padding: 19px;
   margin-bottom: 20px;
@@ -121,20 +120,19 @@ body {
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
 }
-.drop-shadow p:last-child {
+.paper p:last-child {
   margin-bottom: 0;
 }
 
-.drop-shadow:before,
-.drop-shadow:after {
+.paper:before,
+.paper:after {
   content: "";
   position: absolute;
   z-index: -2;
 }
 
-/* Lifted corners */
-.lifted:before,
-.lifted:after {
+.lift:before,
+.lift:after {
   bottom: 15px;
   left: 10px;
   width: 50%;
@@ -151,7 +149,7 @@ body {
   transform: rotate(-3deg);
 }
 
-.lifted:after {
+.lift:after {
   right: 10px;
   left: auto;
   -webkit-transform: rotate(3deg);
@@ -161,14 +159,14 @@ body {
   transform: rotate(3deg);
 }
 
-/* Curled corners */
-.curled {
+.curl {
+  -webkit-border-radius: 0 0 120px 120px/0 0 6px 6px;
   -moz-border-radius: 0 0 120px 120px/0 0 6px 6px;
   border-radius: 0 0 120px 120px/0 0 6px 6px;
 }
 
-.curled:before,
-.curled:after {
+.curl:before,
+.curl:after {
   bottom: 12px;
   left: 10px;
   width: 50%;
@@ -185,7 +183,7 @@ body {
   transform: skew(-8deg) rotate(-3deg);
 }
 
-.curled:after {
+.curl:after {
   right: 10px;
   left: auto;
   -webkit-transform: skew(8deg) rotate(3deg);
@@ -195,7 +193,6 @@ body {
   transform: skew(8deg) rotate(3deg);
 }
 
-/* Perspective */
 .perspective:before {
   left: 80px;
   bottom: 5px;
@@ -211,55 +208,53 @@ body {
   -ms-transform: skew(50deg);
   -o-transform: skew(50deg);
   transform: skew(50deg);
-  -webkit-transform-origin: 0 100%;
-  -moz-transform-origin: 0 100%;
-  -ms-transform-origin: 0 100%;
-  -o-transform-origin: 0 100%;
-  transform-origin: 0 100%;
+  -webkit-transform-style: 0 100%;
+  -moz-transform-style: 0 100%;
+  -ms-transform-style: 0 100%;
+  -o-transform-style: 0 100%;
+  -transform-style: 0 100%;
 }
 
 .perspective:after {
   display: none;
 }
 
-/* Raised shadow - no pseudo-elements needed */
-.raised {
+.raise {
   -webkit-box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3), 0 0 40px rgba(31, 31, 31, 0.1) inset;
   -moz-box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3), 0 0 40px rgba(31, 31, 31, 0.1) inset;
   box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3), 0 0 40px rgba(31, 31, 31, 0.1) inset;
 }
 
-/* Curved shadows */
-.curved:before {
-  top: 10px;
-  bottom: 10px;
-  left: 0;
-  right: 50%;
+.curve:before, .curve-vertical:before, .curve-vertical-double:before, .curve-horizontal:before, .curve-horizontal-double:before {
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -moz-border-radius: 10px/100px;
-  border-radius: 10px/100px;
 }
 
-.curved-vt-2:before {
+.curve-vertical:before, .curve-vertical-double:before {
+  left: 0;
+  right: 50%;
+  top: 10px;
+  bottom: 10px;
+  -webkit-border-radius: 0.1;
+  -moz-border-radius: 0.1;
+  border-radius: 0.1;
+}
+
+.curve-vertical-double:before {
   right: 0;
 }
 
-.curved-hz-1:before {
+.curve-horizontal:before, .curve-horizontal-double:before {
   top: 50%;
   bottom: 0;
   left: 10px;
   right: 10px;
-  -moz-border-radius: 100px/10px;
-  border-radius: 100px/10px;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10;
 }
 
-.curved-hz-2:before {
+.curve-horizontal-double:before {
   top: 0;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
-  -moz-border-radius: 100px/10px;
-  border-radius: 100px/10px;
 }

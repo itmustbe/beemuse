@@ -84,11 +84,6 @@
 
 // Paper
 
-@mixin box-shadow-triple($shadow, $extra, $inset) {
-  -webkit-box-shadow: $shadow, $extra, $inset;
-     -moz-box-shadow: $shadow, $extra, $inset;
-          box-shadow: $shadow, $extra, $inset;
-}
 @mixin box-shadow-double($shadow, $inset) {
   -webkit-box-shadow: $shadow, $inset;
      -moz-box-shadow: $shadow, $inset;
@@ -114,11 +109,4 @@
       -ms-transform: skew($skew);
        -o-transform: skew($skew);
           transform: skew($skew);
-}
-@mixin origin($origin) {
-  -webkit-transform-style: $origin;
-     -moz-transform-style: $origin;
-      -ms-transform-style: $origin;
-       -o-transform-style: $origin;
-         -transform-style: $origin;
 }

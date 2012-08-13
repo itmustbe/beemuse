@@ -75,12 +75,12 @@
       <div class="row">
         <div class="span4">
 
-          <div class="flipper" style="width: 240px; height: 180px;">
+          <div class="flip" style="width: 240px; height: 180px;">
             <a href="#">
-              <div class="flip front">
+              <div class="flip-front">
                 <img src="http://placehold.it/240x160/fafafa" />
               </div>
-              <div class="flip back">
+              <div class="flip-back">
                 <img src="http://placehold.it/240x160" />
               </div>
             </a>
@@ -89,12 +89,12 @@
         </div> <!-- /span -->
         <div class="span4">
 
-          <div class="flipper" style="width: 240px; height: 180px;">
+          <div class="flip" style="width: 240px; height: 180px;">
             <a href="#">
-              <div class="flip front">
+              <div class="flip-front">
                 <img src="http://placehold.it/240x160/fafafa" />
               </div>
-              <div class="flip back">
+              <div class="flip-back">
                 <img src="http://placehold.it/240x160" />
               </div>
             </a>
@@ -106,14 +106,14 @@
           <div class="row">
             <div class="span1">
 
-              <div class="flipper" style="width: 52px; height: 80px;">
+              <div class="flip" style="width: 52px; height: 80px;">
                 <a href="#">
-                  <div class="flip front">
+                  <div class="flip-front">
                     <div class="well">
                       <p>...</p>
                     </div>
                   </div>
-                  <div class="flip back">
+                  <div class="flip-back">
                     <div class="well">
                       <p>...</p>
                     </div>
@@ -124,14 +124,14 @@
             </div> <!-- /span -->
             <div class="span1">
 
-              <div class="flipper" style="width: 52px; height: 80px;">
+              <div class="flip" style="width: 52px; height: 80px;">
                 <a href="#">
-                  <div class="flip front">
+                  <div class="flip-front">
                     <div class="well">
                       <p>...</p>
                     </div>
                   </div>
-                  <div class="flip back">
+                  <div class="flip-back">
                     <div class="well">
                       <p>...</p>
                     </div>
@@ -142,14 +142,14 @@
             </div> <!-- /span -->
             <div class="span1">
 
-              <div class="flipper" style="width: 52px; height: 80px;">
+              <div class="flip" style="width: 52px; height: 80px;">
                 <a href="#">
-                  <div class="flip front">
+                  <div class="flip-front">
                     <div class="well">
                       <p>...</p>
                     </div>
                   </div>
-                  <div class="flip back">
+                  <div class="flip-back">
                     <div class="well">
                       <p>...</p>
                     </div>
@@ -160,14 +160,14 @@
             </div> <!-- /span -->
             <div class="span1">
 
-              <div class="flipper" style="width: 52px; height: 80px;">
+              <div class="flip" style="width: 52px; height: 80px;">
                 <a href="#">
-                  <div class="flip front">
+                  <div class="flip-front">
                     <div class="well">
                       <p>...</p>
                     </div>
                   </div>
-                  <div class="flip back">
+                  <div class="flip-back">
                     <div class="well">
                       <p>...</p>
                     </div>
@@ -186,29 +186,29 @@
           <h3>Usage</h3>
           <div class="well">
             <p>
-              The relatively-positioned .flipper element requires a height to be specified, 
-              which should include in addition a bottom margin of your choosing. Additionally a width 
-              should be specified, to avoid the flip trigger area from auto-expanding in its containing element.
-              Keep in mind how setting these may affect responsive versions of .flipper elements (the width and height
+              Relatively-positioned .flip element (containing absolutely-positioned .flip-front and .flip-back elements)
+              <strong>requires width and height</strong> to be specified (width, to avoid the flip trigger area from auto-expanding
+              in its containing element, and height, including a bottom margin of your choosing).
+              Keep in mind how setting these may affect responsive versions of .flip elements (the width and height
               may need to be reset at the appropriate breakpoints).
             </p>
             <p>
               Degrades gracefully (simply shows back or front without animation). IE10 support.
             </p>
             <p>
-              Credit: homebrewed as most demos use jQuery or don't get it quite right :)</a>
+              Credit: homebrewed as most demos use javascript or don't get it quite right :)</a>
             </p>
           </div> <!-- /well -->
         </div> <!-- /span -->
         <div class="span6">
           <h3>HTML</h3>
 <pre class="prettyprint linenums">
-&lt;div class="flipper"&gt;
+&lt;div class="flip" style="width: X.px; height: X.px;"&gt;
   &lt;a href="#"&gt;
-    &lt;div class="flip front"&gt;
+    &lt;div class="flip-front"&gt;
       ...
     &lt;/div&gt;
-    &lt;div class="flip back"&gt;
+    &lt;div class="flip-back"&gt;
       ...
     &lt;/div&gt;
   &lt;/a&gt;
@@ -221,10 +221,10 @@
         <div class="span6">
           <h3>SCSS</h3>
 <pre class="prettyprint linenums">
-.flipper {
+.flip {
   position: relative;
   @include perspective;
-  .flip {
+  .flip-front, .flip-back {
     position: absolute;
     top: 0;
     left: 0;
@@ -232,18 +232,18 @@
     @include backface;
     @include transition(0.75s);
   }
-  .front {
+  .flip-front {
     z-index: 5;
   }
-  .back {
+  .flip-back {
     z-index: 0;
     @include rotateY(-180deg);
   }
-  &amp;:hover .front {
+  &amp;:hover .flip-front {
     z-index: 5;
     @include rotateY(180deg);
   }
-  &amp;:hover .back {
+  &amp;:hover .flip-back {
     z-index: 10;
     @include rotateY(0deg);
   }
@@ -296,10 +296,10 @@
         <div class="span6">
           <h3>LESS</h3>
 <pre class="prettyprint linenums">
-.flipper {
+.flip {
   position: relative;
   .perspective;
-  .flip {
+  .flip-front, .flip-back {
     position: absolute;
     top: 0;
     left: 0;
@@ -307,18 +307,18 @@
     .backface;
     .transition(0.75s);
   }
-  .front {
+  .flip-front {
     z-index: 5;
   }
-  .back {
+  .flip-back {
     z-index: 0;
     .rotateY(-180deg);
   }
-  &amp;:hover .front {
+  &amp;:hover .flip-front {
     z-index: 5;
     .rotateY(180deg);
   }
-  &amp;:hover .back {
+  &amp;:hover .flip-back {
     z-index: 10;
     .rotateY(0deg);
   }

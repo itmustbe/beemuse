@@ -2,10 +2,10 @@
 
 // 3D Flips
 
-.flipper {
+.flip {
   position: relative;
   @include perspective;
-  .flip {
+  .flip-front, .flip-back {
     position: absolute;
     top: 0;
     left: 0;
@@ -13,18 +13,18 @@
     @include backface;
     @include transition(0.75s);
   }
-  .front {
+  .flip-front {
     z-index: 5;
   }
-  .back {
+  .flip-back {
     z-index: 0;
     @include rotateY(-180deg);
   }
-  &:hover .front {
+  &:hover .flip-front {
     z-index: 5;
     @include rotateY(180deg);
   }
-  &:hover .back {
+  &:hover .flip-back {
     z-index: 10;
     @include rotateY(0deg);
   }

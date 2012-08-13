@@ -1,119 +1,154 @@
 @import "mixins";
 
+$background: #fafafa;
+$inset: rgba(128, 128, 128, 0.1);
+
 // Paper
 
 .paper {
   position: relative;
   padding: 19px;
   margin-bottom: 20px;
-  background: #fafafa;
-  border: 1px solid #fafafa;
-  @include box-shadow-double(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
+  background: $background;
+  border: 1px solid $background;
+  @include box-shadow-double(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $inset inset);
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+  }
   p:last-child {
     margin-bottom: 0;
   }
 }
-.paper:before,
-.paper:after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-}
 
 // Lift corners
 
-.lift:before,
-.lift:after {
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  height: 20%;
-  max-width: 300px;
-  max-height: 100px;
-  @include box-shadow(0 15px 10px rgba(31, 31, 31, 0.7));
-  @include rotate(-3deg);
-}
-.lift:after {
-  right: 10px;
-  left: auto;
-  @include rotate(3deg);
+.paper-lift {
+  &:before,
+  &:after {
+    bottom: 15px;
+    width: 50%;
+    height: 20%;
+    max-width: 300px;
+    max-height: 100px;
+    @include box-shadow(0 15px 10px rgba(31, 31, 31, 0.7));
+  }
+  &:before {
+    left: 10px;
+    @include rotate(-3deg);
+  }
+  &:after {
+    right: 10px;
+    @include rotate(3deg);
+  }
 }
 
 // Curl corners
 
-.curl {
+.paper-curl {
   @include border-radius(0 0 120px 120px / 0 0 6px 6px);
+  &:before,
+  &:after {
+    bottom: 12px;
+    width: 50%;
+    height: 55%;
+    max-width: 200px;
+    max-height: 100px;
+    @include box-shadow(0 8px 12px rgba(31, 31, 31, 0.5));
+  }
+  &:before {
+    left: 10px;
+    @include skew-rotate(-8deg, -3deg);
+  }
+  &:after {
+    right: 10px;
+    @include skew-rotate(8deg, 3deg);
+  }
 }
-.curl:before,
-.curl:after {
-  bottom: 12px;
-  left: 10px;
-  width: 50%;
-  height: 55%;
-  max-width: 200px;
-  max-height: 100px;
-  @include box-shadow(0 8px 12px rgba(31, 31, 31, 0.5));
-  @include skew-rotate(-8deg, -3deg);
+.paper-curl-left {
+  @include border-radius(0 0 0 120px / 0 0 0 6px);
 }
-.curl:after {
-  right: 10px;
-  left: auto;
-  @include skew-rotate(8deg, 3deg);
+.paper-curl-right {
+  @include border-radius(0 0 120px 0 / 0 0 6px 0);
 }
-
-// Perspective
-
-.perspective:before {
-  left: 80px;
-  bottom: 5px;
-  width: 50%;
-  height: 35%;
-  max-width: 200px;
-  max-height: 50px;
-  @include box-shadow(-80px 0 8px rgba(31, 31, 31, 0.4));
-  @include skew(50deg);
-  @include origin(0 100%);
-}
-
-.perspective:after {
-  display: none;
+.paper-curl-left,
+.paper-curl-right {
+  &:before {
+    @extend .paper-curl:before;
+  }
+  &:after {
+    @extend .paper-curl:after;
+  }
 }
 
-// Raise (no pseudo-elements needed)
+// Raise
 
-.raise {
-  @include box-shadow-triple(0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3), 0 0 40px rgba(31, 31, 31, 0.1) inset);
+.paper-raise:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include box-shadow-double(0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3));
 }
 
-// Curve (vertical and horizontal)
+// Curves
 
-.curve:before {
+.paper-curve:before {
   @include box-shadow(0 0 15px rgba(0,0,0,0.6));
 }
-
-.curve-vertical:before {
-  @extend .curve:before;
-  left: 0;
-  right: 50%;
-  top: 10px;
-  bottom: 10px;
-  @include border-radius(10px / 100px);
+.paper-curve-left,
+.paper-curve-right {
+  &:before {
+    @extend .paper-curve:before;
+    top: 10px;
+    bottom: 10px;
+    @include border-radius(10px / 100px);
+  }
 }
-.curve-vertical-double:before {
-  @extend .curve-vertical:before;
-  right: 0;
+.paper-curve-left {
+  &:before {
+    left: 0;
+    right: 50%;
+  }
 }
-
-.curve-horizontal:before {
-  @extend .curve:before;
-  top: 50%;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
-  @include border-radius(100px / 10px);
+.paper-curve-right {
+  &:before {
+    left: 50%;
+    right: 0;
+  }
 }
-
-.curve-horizontal-double:before {
-  @extend .curve-horizontal:before;
-  top: 0;
+.paper-curve-vert {
+  &:before {
+    @extend .paper-curve-left:before;
+    right: 0;
+  }
+}
+.paper-curve-above,
+.paper-curve-below {
+  &:before {
+    @extend .paper-curve:before;
+    left: 10px;
+    right: 10px;
+    @include border-radius(100px / 10px);
+  }
+}
+.paper-curve-above {
+  &:before {
+    top: 0;
+    bottom: 50%;
+  }
+}
+.paper-curve-below {
+  &:before {
+    top: 50%;
+    bottom: 0;
+  }
+}
+.paper-curve-horiz {
+  &:before {
+    @extend .paper-curve-below:before;
+    top: 0;
+  }
 }

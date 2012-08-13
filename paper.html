@@ -74,35 +74,47 @@
 
       <div class="row">
         <div class="span3">
-          <div class="paper lift">
+          <div class="paper">
+            <p>Plain paper</p>
+          </div>
+          <div class="paper paper-lift">
             <p>Lifted corners</p>
           </div>
-          <div class="paper curl">
-            <p>Curled corners</p>
-          </div>
-        </div>
-        <div class="span3">
-          <div class="paper perspective">
-            <p>Perspective</p>
-          </div>
-          <div class="paper raise">
+          <div class="paper paper-raise">
             <p>Raised box</p>
           </div>
         </div>
         <div class="span3">
-          <div class="paper curve-vertical">
-            <p>Single vertical curve</p>
+          <div class="paper paper-curl">
+            <p>Curled corners</p>
           </div>
-          <div class="paper curve-vertical-double">
-            <p>Vertical curves</p>
+          <div class="paper paper-curl-left">
+            <p>Curled left corner</p>
+          </div>
+          <div class="paper paper-curl-right">
+            <p>Curled right corner</p>
           </div>
         </div>
         <div class="span3">
-          <div class="paper curve-horizontal">
-            <p>Single horizontal curve</p>
-          </div>
-          <div class="paper curve-horizontal-double">
+          <div class="paper paper-curve-horiz">
             <p>Horizontal curves</p>
+          </div>
+          <div class="paper paper-curve-above">
+            <p>Horizontal curve above</p>
+          </div>
+          <div class="paper paper-curve-below">
+            <p>Horizontal curve below</p>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="paper paper-curve-vert">
+            <p>Vertical curves</p>
+          </div>
+          <div class="paper paper-curve-left">
+            <p>Vertical curve left</p>
+          </div>
+          <div class="paper paper-curve-right">
+            <p>Vertical curve right</p>
           </div>
         </div>
       </div> <!-- /row -->
@@ -112,7 +124,7 @@
           <h3>Usage</h3>
           <div class="well">
             <p>
-              Requires relative or absolute positioned parent.
+              Use like a Bootstrap well. Relatively-positioned .paper element.
             </p>
             <p>
               No IE7 support (no :before or :after pseudo-elements).
@@ -121,11 +133,55 @@
               Credit: <a href="http://nicolasgallagher.com/css-drop-shadows-without-images">Nicolas Gallagher</a> (tweaked a bit)
             </p>
           </div> <!-- /well -->
+          <h3>Variables</h3>
+          <div class="well">
+            <p><code>$background: #fafafa;</code> Paper background color</p>
+            <p><code>$inset: rgba(128, 128, 128, 0.1);</code> Inset shadow color &amp; intensity</p>
+          </div> <!-- /well -->
         </div> <!-- /span -->
         <div class="span6">
           <h3>HTML</h3>
 <pre class="prettyprint linenums">
-...
+&lt;!-- Classic --&gt;
+&lt;div class="paper"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="paper paper-lift"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="paper paper-raise"&gt;
+  ...
+&lt;/div&gt;
+&lt;!-- Curled --&gt;
+&lt;div class="paper paper-curl"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="paper paper-curl-left"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="paper paper-curl-right"&gt;
+  ...
+&lt;/div&gt;
+&lt;!-- Horizontal curves --&gt;
+&lt;div class="paper paper-curve-horiz"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="paper paper-curve-above"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="paper paper-curve-below"&gt;
+  ...
+&lt;/div&gt;
+&lt;!-- Vertical curves --&gt;
+&lt;div class="paper paper-curve-vert"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="paper paper-curve-left"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="paper paper-curve-right"&gt;
+  ...
+&lt;/div&gt;
 </pre>
         </div> <!-- /span -->
       </div> <!-- /row -->

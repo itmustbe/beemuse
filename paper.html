@@ -198,28 +198,226 @@
 
       <div class="row">
         <div class="span6">
-          <h3>SCSS</h3>
+          <h3>SCSS Mixins</h3>
 <pre class="prettyprint linenums">
-...
+@mixin box-shadow-double($shadow, $inset) {
+  -webkit-box-shadow: $shadow, $inset;
+     -moz-box-shadow: $shadow, $inset;
+          box-shadow: $shadow, $inset;
+}
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+     -moz-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+       -o-transform: rotate($degrees);
+          transform: rotate($degrees);
+}
+@mixin skew-rotate($skew, $degrees) {
+  -webkit-transform: skew($skew) rotate($degrees);
+     -moz-transform: skew($skew) rotate($degrees);
+      -ms-transform: skew($skew) rotate($degrees);
+       -o-transform: skew($skew) rotate($degrees);
+          transform: skew($skew) rotate($degrees);
+}
+@mixin skew($skew) {
+  -webkit-transform: skew($skew);
+     -moz-transform: skew($skew);
+      -ms-transform: skew($skew);
+       -o-transform: skew($skew);
+          transform: skew($skew);
+}
 </pre>
         </div> <!-- /span -->
         <div class="span6">
-          <h3>SCSS Mixins</h3>
+          <h3>LESS Mixins</h3>
 <pre class="prettyprint linenums">
-...
+.box-shadow-double(@shadow, @inset) {
+  -webkit-box-shadow: @shadow, @inset;
+     -moz-box-shadow: @shadow, @inset;
+          box-shadow: @shadow, @inset;
+}
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+     -moz-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees);
+       -o-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}
+.skew-rotate(@skew, @degrees) {
+  -webkit-transform: skew(@skew) rotate(@degrees);
+     -moz-transform: skew(@skew) rotate(@degrees);
+      -ms-transform: skew(@skew) rotate(@degrees);
+       -o-transform: skew(@skew) rotate(@degrees);
+          transform: skew(@skew) rotate(@degrees);
+}
+.skew(@skew) {
+  -webkit-transform: skew(@skew);
+     -moz-transform: skew(@skew);
+      -ms-transform: skew(@skew);
+       -o-transform: skew(@skew);
+          transform: skew(@skew);
+}
 </pre>
         </div> <!-- /span -->
       </div> <!-- /row -->
 
       <div class="row">
         <div class="span6">
-          <h3>LESS</h3>
+          <h3>SCSS</h3>
 <pre class="prettyprint linenums">
-...
+// Paper
+
+.paper {
+  position: relative;
+  padding: 19px;
+  margin-bottom: 20px;
+  background: $paperBackground;
+  border: 1px solid $paperBackground;
+  @include box-shadow-double(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $paperInset inset);
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Lift corners
+
+.paper-lift {
+  &:before,
+  &:after {
+    bottom: 15px;
+    width: 50%;
+    height: 20%;
+    max-width: 300px;
+    max-height: 100px;
+    @include box-shadow(0 15px 10px rgba(31, 31, 31, 0.7));
+  }
+  &:before {
+    left: 10px;
+    @include rotate(-3deg);
+  }
+  &:after {
+    right: 10px;
+    @include rotate(3deg);
+  }
+}
+
+// Curl corners
+
+.paper-curl {
+  @include border-radius(0 0 120px 120px / 0 0 6px 6px);
+  &:before,
+  &:after {
+    bottom: 12px;
+    width: 50%;
+    height: 55%;
+    max-width: 200px;
+    max-height: 100px;
+    @include box-shadow(0 8px 12px rgba(31, 31, 31, 0.5));
+  }
+  &:before {
+    left: 10px;
+    @include skew-rotate(-8deg, -3deg);
+  }
+  &:after {
+    right: 10px;
+    @include skew-rotate(8deg, 3deg);
+  }
+}
+.paper-curl-left {
+  @include border-radius(0 0 0 120px / 0 0 0 6px);
+}
+.paper-curl-right {
+  @include border-radius(0 0 120px 0 / 0 0 6px 0);
+}
+.paper-curl-left,
+.paper-curl-right {
+  &:before {
+    @extend .paper-curl:before;
+  }
+  &:after {
+    @extend .paper-curl:after;
+  }
+}
+
+// Raise
+
+.paper-raise:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include box-shadow-double(0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3));
+}
+
+// Curves
+
+.paper-curve:before {
+  @include box-shadow(0 0 15px rgba(0,0,0,0.6));
+}
+.paper-curve-left,
+.paper-curve-right {
+  &:before {
+    @extend .paper-curve:before;
+    top: 10px;
+    bottom: 10px;
+    @include border-radius(10px / 100px);
+  }
+}
+.paper-curve-left {
+  &:before {
+    left: 0;
+    right: 50%;
+  }
+}
+.paper-curve-right {
+  &:before {
+    left: 50%;
+    right: 0;
+  }
+}
+.paper-curve-vert {
+  &:before {
+    @extend .paper-curve-left:before;
+    right: 0;
+  }
+}
+.paper-curve-above,
+.paper-curve-below {
+  &:before {
+    @extend .paper-curve:before;
+    left: 10px;
+    right: 10px;
+    @include border-radius(100px / 10px);
+  }
+}
+.paper-curve-above {
+  &:before {
+    top: 0;
+    bottom: 50%;
+  }
+}
+.paper-curve-below {
+  &:before {
+    top: 50%;
+    bottom: 0;
+  }
+}
+.paper-curve-horiz {
+  &:before {
+    @extend .paper-curve-below:before;
+    top: 0;
+  }
+}
 </pre>
         </div> <!-- /span -->
         <div class="span6">
-          <h3>LESS Mixins</h3>
+          <h3>LESS</h3>
 <pre class="prettyprint linenums">
 ...
 </pre>

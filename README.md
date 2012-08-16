@@ -1,20 +1,22 @@
 Beemuse for [Twitter Bootstrap](http://twitter.github.com/bootstrap)
 =================
 
-Beemuse provides simple HTML, CSS, and Javascript components to add to any Bootstrap-based site.
+This is a growing collection of components enhancing Bootstrap. I'm providing both SCSS and LESS as I prefer the former, but BS uses the latter.
+
+The Paper and Stitches components can be used similarly to Bootstrap [wells](http://twitter.github.com/bootstrap/components.html#misc).
 
 The 3D Flips component can be applied to any element, including Bootstrap [thumbnails](http://twitter.github.com/bootstrap/components.html#thumbnails).
-
-The Stitches component can be used similarly to Bootstrap [wells](http://twitter.github.com/bootstrap/components.html#misc).
 
 
 
 Quick start
 -----------
 
-Clone the repo, `git clone git@github.com:itmustbe/beemuse.git`
-
 To get started, checkout http://beemuse.com!
+
+Simplest usage: include beemuse.css after bootstrap.css and (optionally) before bootstrap-responsive.css
+
+Advanced usage: modify included SCSS files with customizable variables and mixins (requires SASS 3.2)
 
 
 

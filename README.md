@@ -23,7 +23,7 @@ Advanced usage: modify included SCSS files with customizable variables and mixin
 Author
 ------
 
-**Elise Roberts**
+**Elise**
 
 + http://github.com/itmustbe
 

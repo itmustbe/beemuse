@@ -1,0 +1,57 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+h5 {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+h6 {
+  font-size: 11px;
+  line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 1px 1px #fff;
+}
+
+code,
+pre {
+  font-size: 12px;
+}
+
+.well p:last-child {
+  margin-bottom: 0;
+}

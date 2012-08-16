@@ -11,6 +11,7 @@
     <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/beemuse.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -26,7 +27,7 @@
 
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -47,27 +48,6 @@
       </div>
     </div>
 
-    <div class="navbar navbar-fixed-bottom hidden-phone">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="http://twitter.github.com/bootstrap">Bootstrap</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="http://twitter.github.com/bootstrap/scaffolding.html">Scaffolding</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/base-css.html">Base CSS</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/components.html">Components</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/javascript.html">JS Plugins</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="container">
 
       <h2>Beemuse Components</h2>
@@ -77,6 +57,16 @@
           <a href="https://github.com/twitter/bootstrap">Bootstrap</a>.
           I'm providing both SCSS and LESS as I prefer the former, but BS uses the latter.
         </p>
+        <p>
+          Simplest usage: include <code>&lt;link href=&quot;css/beemuse.css&quot; rel=&quot;stylesheet&quot;&gt;</code>
+          after bootstrap.css and (optionally) before bootstrap-responsive.css
+        </p>
+        <p>
+          Advanced usage: modify included SCSS files with customizable variables and mixins (requires SASS 3.2)
+        </p>
+      </div>
+      <div class="alert alert-info">
+        Now updated to BS 2.1 (coming out August 20th :)
       </div>
 
       <div class="row">
@@ -154,6 +144,27 @@
 
     </div>
 
+    <div class="navbar navbar-fixed-bottom navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://twitter.github.com/bootstrap">Bootstrap</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="http://twitter.github.com/bootstrap/scaffolding.html">Scaffolding</a></li>
+              <li><a href="http://twitter.github.com/bootstrap/base-css.html">Base CSS</a></li>
+              <li><a href="http://twitter.github.com/bootstrap/components.html">Components</a></li>
+              <li><a href="http://twitter.github.com/bootstrap/javascript.html">JS Plugins</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -171,6 +182,7 @@
     <script src="js/bootstrap-collapse.js"></script>
     <script src="js/bootstrap-carousel.js"></script>
     <script src="js/bootstrap-typeahead.js"></script>
+    <script src="js/bootstrap-affix.js"></script>
 
     <script>prettyPrint();</script>
 

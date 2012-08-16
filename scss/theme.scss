@@ -1,0 +1,43 @@
+@import "mixins";
+
+// Modifies BS defaults along with Beemuse values in less/variables
+
+// Body Setup
+
+body {
+  padding-top: 60px; // 60px to make the container go all the way to the bottom of the top navbar
+  padding-bottom: 60px; // 60px to make the container go all the way to the top of the bottom navbar
+  @include media(max767) {
+    padding-bottom: 0;
+  }
+  @include media(min768max979) {
+    padding-bottom: 0;
+  }
+}
+
+// BS Type
+
+h1 { font-size: 30px; line-height: 20px; }
+h2 { font-size: 24px; line-height: 20px; }
+h3 { font-size: 18px; line-height: 20px; }
+h4 { font-size: 14px; line-height: 20px; }
+h5 { font-size: 12px; line-height: 20px; }
+h6 { font-size: 11px; line-height: 20px; }
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 1px 1px #fff; // indented look
+}
+
+// BS Code
+
+code,
+pre {
+  font-size: 12px;
+}
+
+// BS Wells
+
+.well {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

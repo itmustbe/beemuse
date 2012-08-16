@@ -1,7 +1,7 @@
 Beemuse for [Twitter Bootstrap](http://twitter.github.com/bootstrap)
 =================
 
-This is a growing collection of components enhancing Bootstrap. I'm providing both SCSS and LESS as I prefer the former, but BS uses the latter.
+This is a growing collection of components enhancing Bootstrap.
 
 The Paper and Stitches components can be used similarly to Bootstrap [wells](http://twitter.github.com/bootstrap/components.html#misc).
 

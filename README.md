@@ -3,6 +3,8 @@ Beemuse for [Twitter Bootstrap](http://twitter.github.com/bootstrap)
 
 This is a growing collection of components enhancing Bootstrap.
 
+Now updated for Bootstrap 2.1 (coming out August 20th :)
+
 The Paper and Stitches components can be used similarly to Bootstrap [wells](http://twitter.github.com/bootstrap/components.html#misc).
 
 The 3D Flips component can be applied to any element, including Bootstrap [thumbnails](http://twitter.github.com/bootstrap/components.html#thumbnails).
@@ -12,11 +14,13 @@ The 3D Flips component can be applied to any element, including Bootstrap [thumb
 Quick start
 -----------
 
-To get started, checkout http://beemuse.com!
+To get started, take a look at http://beemuse.com!
 
-Simplest usage: include beemuse.css after bootstrap.css and (optionally) before bootstrap-responsive.css
+Simplest: include beemuse.css after bootstrap.css (and before bootstrap-responsive.css if in use)
 
-Advanced usage: modify included SCSS files with customizable variables and mixins (requires SASS 3.2)
+Advanced: modify included scss files with customizable variables and mixins (requires SASS 3.2)
+
+Modular: modify beemuse.scss to include just the modules you wish
 
 
 

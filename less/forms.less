@@ -417,7 +417,7 @@ select:focus:required:invalid {
     margin-bottom: 0; // prevent bottom margin from screwing up alignment in stacked forms
     *margin-left: 0;
     font-size: @baseFontSize;
-    vertical-align: middle;
+    vertical-align: top;
     .border-radius(0 @inputBorderRadius @inputBorderRadius 0);
     // Make input on top when focused so blue border and shadow always show
     &:focus {
@@ -435,13 +435,13 @@ select:focus:required:invalid {
     line-height: @baseLineHeight;
     text-align: center;
     text-shadow: 0 1px 0 @white;
-    vertical-align: middle;
     background-color: @grayLighter;
     border: 1px solid #ccc;
   }
   .add-on,
   .btn {
     margin-left: -1px;
+    vertical-align: top;
     .border-radius(0);
   }
   .active {
@@ -494,7 +494,7 @@ select:focus:required:invalid {
 // SEARCH FORM
 // -----------
 
-.search-query {
+input.search-query {
   padding-right: 14px;
   padding-right: 4px \9;
   padding-left: 14px;
@@ -551,7 +551,9 @@ select:focus:required:invalid {
   }
 }
 .form-search label,
-.form-inline label {
+.form-inline label,
+.form-search .btn-group,
+.form-inline .btn-group {
   display: inline-block;
 }
 // Remove margin for input-prepend/-append

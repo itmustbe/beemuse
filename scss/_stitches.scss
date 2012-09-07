@@ -13,9 +13,6 @@ $stitchBottomGradient: #eee;
   @include stitch-container(19px, 8px, $stitchBorder, $stitchBaseEdge);
   @include gradient($stitchTopGradient, $stitchBottomGradient);
   margin-bottom: 20px;
-  p:last-child {
-    margin-bottom: 0;
-  }
 }
 .stitch:before {
   @include stitch-effect($stitchColor, $stitchGutter, 3px, 6px);

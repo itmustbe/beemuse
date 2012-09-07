@@ -52,6 +52,8 @@ pre {
   font-size: 12px;
 }
 
-.well p:last-child {
+.well p:last-child,
+.stitch p:last-child,
+.paper p:last-child {
   margin-bottom: 0;
 }

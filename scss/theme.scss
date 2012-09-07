@@ -34,9 +34,11 @@ pre {
   font-size: 12px;
 }
 
-// BS Wells
+// BS Wells, BM Stitches, BM Paper
 
-.well {
+.well,
+.stitch,
+.paper {
   p:last-child {
     margin-bottom: 0;
   }

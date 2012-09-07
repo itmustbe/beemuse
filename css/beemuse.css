@@ -84,9 +84,6 @@
   background-repeat: repeat-x;
   margin-bottom: 20px;
 }
-.stitch p:last-child {
-  margin-bottom: 0;
-}
 
 .stitch:before {
   content: '';
@@ -119,9 +116,6 @@
   content: "";
   position: absolute;
   z-index: -2;
-}
-.paper p:last-child {
-  margin-bottom: 0;
 }
 
 .paper-lift:before, .paper-lift:after {

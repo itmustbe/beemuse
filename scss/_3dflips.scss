@@ -1,16 +1,16 @@
-@import "mixins";
+@import "compass/css3";
 
-// 3D Flips
+/* 3D Flips */
 
 .flip {
   position: relative;
-  @include perspective;
+  @include perspective(1000);
   .flip-front, .flip-back {
     position: absolute;
     top: 0;
     left: 0;
-    @include transform;
-    @include backface;
+    @include transform-style(preserve-3d);
+    @include backface-visibility(hidden);
     @include transition(0.75s);
   }
   .flip-front {

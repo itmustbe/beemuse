@@ -199,17 +199,17 @@
 
       <div class="row">
         <div class="span6">
-          <h3>SCSS</h3>
+          <h3>SCSS w/Compass CSS3</h3>
 <pre class="prettyprint linenums">
 .flip {
   position: relative;
-  @include perspective;
+  @include perspective(1000);
   .flip-front, .flip-back {
     position: absolute;
     top: 0;
     left: 0;
-    @include transform;
-    @include backface;
+    @include transform-style(preserve-3d);
+    @include backface-visibility(hidden);
     @include transition(0.75s);
   }
   .flip-front {
@@ -231,117 +231,61 @@
 </pre>
         </div> <!-- /span -->
         <div class="span6">
-          <h3>SCSS Mixins</h3>
-<pre class="prettyprint linenums">
-@mixin transition($transition) {
-  -webkit-transition: $transition;
-     -moz-transition: $transition;
-      -ms-transition: $transition;
-       -o-transition: $transition;
-          transition: $transition;
-}
-@mixin rotateY($degrees) {
-  -webkit-transform: rotateY($degrees);
-     -moz-transform: rotateY($degrees);
-      -ms-transform: rotateY($degrees);
-       -o-transform: rotateY($degrees);
-          transform: rotateY($degrees);
-}
-@mixin perspective($degree: 1000) {
-  -webkit-perspective: $degree;
-     -moz-perspective: $degree;
-      -ms-perspective: $degree;
-       -o-perspective: $degree;
-         -perspective: $degree;
-}
-@mixin transform($style: preserve-3d) {
-  -webkit-transform-style: $style;
-     -moz-transform-style: $style;
-      -ms-transform-style: $style;
-       -o-transform-style: $style;
-         -transform-style: $style;
-}
-@mixin backface($visibility: hidden) {
-  -webkit-backface-visibility: $visibility;
-     -moz-backface-visibility: $visibility;
-      -ms-backface-visibility: $visibility;
-       -o-backface-visibility: $visibility;
-         -backface-visibility: $visibility;
-}
-</pre>
-        </div> <!-- /span -->
-      </div> <!-- /row -->
-
-      <div class="row">
-        <div class="span6">
-          <h3>LESS</h3>
+          <h3>Compiled CSS</h3>
 <pre class="prettyprint linenums">
 .flip {
   position: relative;
-  .perspective;
-  .flip-front, .flip-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    .transform;
-    .backface;
-    .transition(0.75s);
-  }
-  .flip-front {
-    z-index: 5;
-  }
-  .flip-back {
-    z-index: 0;
-    .rotateY(-180deg);
-  }
-  &amp;:hover .flip-front {
-    z-index: 5;
-    .rotateY(180deg);
-  }
-  &amp;:hover .flip-back {
-    z-index: 10;
-    .rotateY(0deg);
-  }
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
 }
-</pre>
-        </div> <!-- /span -->
-        <div class="span6">
-          <h3>LESS Mixins</h3>
-<pre class="prettyprint linenums">
-.transition(@transition) {
-  -webkit-transition: @transition;
-     -moz-transition: @transition;
-      -ms-transition: @transition;
-       -o-transition: @transition;
-          transition: @transition;
+.flip .flip-front, .flip .flip-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: 0.75s;
+  -moz-transition: 0.75s;
+  -o-transition: 0.75s;
+  transition: 0.75s;
 }
-.rotateY(@degrees) {
-  -webkit-transform: rotateY(@degrees);
-     -moz-transform: rotateY(@degrees);
-      -ms-transform: rotateY(@degrees);
-       -o-transform: rotateY(@degrees);
-          transform: rotateY(@degrees);
+.flip .flip-front {
+  z-index: 5;
 }
-.perspective(@degree: 1000) {
-  -webkit-perspective: @degree;
-     -moz-perspective: @degree;
-      -ms-perspective: @degree;
-       -o-perspective: @degree;
-         -perspective: @degree;
+.flip .flip-back {
+  z-index: 0;
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
-.transform(@style: preserve-3d) {
-  -webkit-transform-style: @style;
-     -moz-transform-style: @style;
-      -ms-transform-style: @style;
-       -o-transform-style: @style;
-         -transform-style: @style;
+.flip:hover .flip-front {
+  z-index: 5;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-.backface(@visibility: hidden) {
-  -webkit-backface-visibility: @visibility;
-     -moz-backface-visibility: @visibility;
-      -ms-backface-visibility: @visibility;
-       -o-backface-visibility: @visibility;
-         -backface-visibility: @visibility;
+.flip:hover .flip-back {
+  z-index: 10;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 </pre>
         </div> <!-- /span -->

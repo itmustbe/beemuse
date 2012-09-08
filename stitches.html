@@ -95,65 +95,20 @@
   ...
 &lt;/div&gt;
 </pre>
-          <h3>Variables</h3>
-          <div class="well">
-            <p>
-              <code>$stitchColor: #ccc;</code> (80% light-gray)
-            </p>
-            <p>
-              <code>$stitchGutter: #fff;</code> (white)
-            </p>
-            <p>
-              <code>$stitchBorder: #ddd;</code> (87% light-gray)
-            </p>
-            <p>
-              <code>$stitchBaseEdge: #9a9a9a;</code> (60% mid-gray)
-            </p>
-            <p>
-              <code>$stitchTopGradient: #fff;</code> (white)
-            </p>
-            <p>
-              <code>$stitchBottomGradient: #eee;</code> (93% off-white)
-            </p>
-          </div> <!-- /well -->
         </div> <!-- /span -->
       </div> <!-- /row -->
 
       <div class="row">
         <div class="span6">
-          <h3>SCSS</h3>
+          <h3>SCSS w/Compass CSS3</h3>
 <pre class="prettyprint linenums">
-.stitch {
-  // set container padding, border-radius, border-color, box-shadow
-  @include stitch-container(19px, 8px, #ddd, #9a9a9a);
-  // set container background-color as gradient (top, bottom)
-  @include gradient(#fff, #eee);
-  // set bottom margin (and padding) like BS wells.less
-  margin-bottom: 20px;
-  // remove BS 9px margin on last paragraph
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-.stitch:before {
-  // set stitch color, highlight, offset, border-radius
-  @include stitch-effect(#ccc, #fff, 3px, 6px);
-}
-</pre>
-        </div> <!-- /span -->
-        <div class="span6">
-          <h3>SCSS Mixins</h3>
-<pre class="prettyprint linenums">
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-          border-radius: $radius;
-}
-@mixin box-shadow($shadow) {
-  -webkit-box-shadow: $shadow;
-     -moz-box-shadow: $shadow;
-          box-shadow: $shadow;
-}
+$stitchColor: #ccc; // 80% light-gray
+$stitchGutter: #fff; // white
+$stitchBorder: #ddd; // 87% light-gray
+$stitchBaseEdge: #9a9a9a; // 60% mid-gray
+$stitchTopGradient: #fff; // white
+$stitchBottomGradient: #eee; // 93% off-white
+
 @mixin stitch-container($padding, $radius, $color, $shadow) {
   position: relative;
   z-index: 0;
@@ -174,64 +129,60 @@
   @include border-radius($radius);
   @include box-shadow(0 0 0 1px $highlight);
 }
-</pre>
-        </div> <!-- /span -->
-      </div> <!-- /row -->
 
-      <div class="row">
-        <div class="span6">
-          <h3>LESS</h3>
-<pre class="prettyprint linenums">
 .stitch {
-  // set container padding, border-radius, border-color, box-shadow
-  .stitch-container(19px, 8px, #ddd, #9a9a9a);
-  // set container background-color as gradient (top, bottom)
-  .gradient(#fff, #eee);
-  // set bottom margin (and padding) like BS wells.less
+  @include stitch-container(19px, 8px, $stitchBorder, $stitchBaseEdge); // padding, border-radius, border-color, box-shadow
+  background-color: mix($stitchTopGradient, $stitchBottomGradient);
+  @include background-image(linear-gradient($stitchTopGradient, $stitchBottomGradient));
   margin-bottom: 20px;
-  // remove BS 9px margin on last paragraph
-  p:last-child {
-    margin-bottom: 0;
-  }
 }
 .stitch:before {
-  // set stitch color, highlight, offset, border-radius
-  .stitch-effect(#ccc, #fff, 3px, 6px);
+  @include stitch-effect($stitchColor, $stitchGutter, 3px, 6px); // stitch color, highlight, offset, border-radius
 }
 </pre>
         </div> <!-- /span -->
         <div class="span6">
-          <h3>LESS Mixins</h3>
+          <h3>Compiled CSS</h3>
 <pre class="prettyprint linenums">
-.border-radius(@radius) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
-}
-.box-shadow(@shadow) {
-  -webkit-box-shadow: @shadow;
-     -moz-box-shadow: @shadow;
-          box-shadow: @shadow;
-}
-.stitch-container(@padding, @radius, @color, @shadow) {
+.stitch {
   position: relative;
   z-index: 0;
-  padding: @padding;
-  border: 1px solid @color;
-  .border-radius(@radius);
-  .box-shadow(0 1px 0 0 @shadow);
+  padding: 19px;
+  border: 1px solid #dddddd;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 0 0 #9a9a9a;
+  -moz-box-shadow: 0 1px 0 0 #9a9a9a;
+  box-shadow: 0 1px 0 0 #9a9a9a;
+  background-color: #f6f6f6;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(#ffffff, #eeeeee);
+  background-image: -moz-linear-gradient(#ffffff, #eeeeee);
+  background-image: -o-linear-gradient(#ffffff, #eeeeee);
+  background-image: linear-gradient(#ffffff, #eeeeee);
+  margin-bottom: 20px;
 }
-.stitch-effect(@color, @highlight, @offset, @radius) {
+
+.stitch:before {
   content: '';
   z-index: -1;
   position: absolute;
-  border: 1px dashed @color;
-  top: @offset;
-  bottom: @offset;
-  left: @offset;
-  right: @offset;
-  .border-radius(@radius);
-  .box-shadow(0 0 0 1px @highlight);
+  border: 1px dashed #cccccc;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 0 0 1px white;
+  -moz-box-shadow: 0 0 0 1px white;
+  box-shadow: 0 0 0 1px white;
 }
 </pre>
         </div> <!-- /span -->

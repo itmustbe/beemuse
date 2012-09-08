@@ -1,19 +1,41 @@
-@import "mixins";
+@import "compass/css3";
 
-$stitchColor: #ccc;
-$stitchGutter: #fff;
-$stitchBorder: #ddd;
-$stitchBaseEdge: #9a9a9a;
-$stitchTopGradient: #fff;
-$stitchBottomGradient: #eee;
+/* Stitches */
 
-// Stitches
+$stitchColor: #ccc; // 80% light-gray
+$stitchGutter: #fff; // white
+$stitchBorder: #ddd; // 87% light-gray
+$stitchBaseEdge: #9a9a9a; // 60% mid-gray
+$stitchTopGradient: #fff; // white
+$stitchBottomGradient: #eee; // 93% off-white
+
+@mixin stitch-container($padding, $radius, $color, $shadow) {
+  position: relative;
+  z-index: 0;
+  padding: $padding;
+  border: 1px solid $color;
+  @include border-radius($radius);
+  @include box-shadow(0 1px 0 0 $shadow);
+}
+@mixin stitch-effect($color, $highlight, $offset, $radius) {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  border: 1px dashed $color;
+  top: $offset;
+  bottom: $offset;
+  left: $offset;
+  right: $offset;
+  @include border-radius($radius);
+  @include box-shadow(0 0 0 1px $highlight);
+}
 
 .stitch {
-  @include stitch-container(19px, 8px, $stitchBorder, $stitchBaseEdge);
-  @include gradient($stitchTopGradient, $stitchBottomGradient);
+  @include stitch-container(19px, 8px, $stitchBorder, $stitchBaseEdge); // padding, border-radius, border-color, box-shadow
+  background-color: mix($stitchTopGradient, $stitchBottomGradient);
+  @include background-image(linear-gradient($stitchTopGradient, $stitchBottomGradient));
   margin-bottom: 20px;
 }
 .stitch:before {
-  @include stitch-effect($stitchColor, $stitchGutter, 3px, 6px);
+  @include stitch-effect($stitchColor, $stitchGutter, 3px, 6px); // stitch color, highlight, offset, border-radius
 }

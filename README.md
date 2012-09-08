@@ -1,11 +1,11 @@
-Beemuse for [Twitter Bootstrap](http://twitter.github.com/bootstrap)
+Beemuse
 =================
 
-This is a growing collection of components enhancing Bootstrap 2.1
+This is a growing collection of front end CSS3 components I'm soon planning to release as a Ruby Gem... September 2012 :)
 
-The Paper and Stitches components can be used as you would Bootstrap [wells](http://twitter.github.com/bootstrap/components.html#misc).
+Dependencies: [Compass](https://github.com/chriseppstein/compass) & [SASS](https://github.com/nex3/sass)
 
-The 3D Flips component can be applied to any element, including Bootstrap [thumbnails](http://twitter.github.com/bootstrap/components.html#thumbnails).
+Suggestions: use with [Foundation](https://github.com/zurb/foundation) or [Bootstrap](http://twitter.github.com/bootstrap)
 
 
 
@@ -14,11 +14,11 @@ Quick start
 
 Demos & Docs: http://beemuse.com
 
-Simplest: include beemuse.css after bootstrap.css (and before bootstrap-responsive.css if in use)
+Simplest: include beemuse.css in the <head> section of your page
 
-Advanced: modify included scss files with customizable variables and mixins (requires SASS 3.2)
+Advanced: modify included scss files with customizable variables
 
-Modular: modify beemuse.scss to include just the modules you wish
+Modular: include just the modules you wish in beemuse.scss
 
 
 

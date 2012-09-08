@@ -14,7 +14,7 @@ Quick start
 
 Demos & Docs: http://beemuse.com
 
-Simplest: include beemuse.css in the <head> section of your page
+Simplest: include beemuse.css in the head section of your page
 
 Advanced: modify included scss files with customizable variables
 

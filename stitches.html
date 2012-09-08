@@ -79,8 +79,7 @@
             </p>
             <p>
               No IE7 support (no :before or :after pseudo-elements). Note that this gradient as 
-              implemented supports IE10 (IE9 and under will get a nice mix of the two colors).
-              Check Bootstrap mixins.less for an up-to-date vertical gradient mixin.
+              implemented supports IE10 (IE9 and under will get an even mix of the two colors).
             </p>
             <p>
               Credit: <a href="http://www.red-team-design.com">Red Team Design</a> (tweaked a bit)
@@ -99,8 +98,12 @@
 
       <div class="row">
         <div class="span6">
-          <h3>SCSS w/Compass CSS3</h3>
+          <h3>SCSS</h3>
 <pre class="prettyprint linenums">
+@import "compass/css3";
+
+/* Stitches */
+
 $stitchColor: #ccc; // 80% light-gray
 $stitchGutter: #fff; // white
 $stitchBorder: #ddd; // 87% light-gray
@@ -141,7 +144,7 @@ $stitchBottomGradient: #eee; // 93% off-white
 </pre>
         </div> <!-- /span -->
         <div class="span6">
-          <h3>Compiled CSS</h3>
+          <h3>CSS</h3>
 <pre class="prettyprint linenums">
 .stitch {
   position: relative;

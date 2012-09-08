@@ -105,6 +105,7 @@
   box-shadow: 0 0 0 1px white;
 }
 
+/* Paper */
 .paper {
   position: relative;
   padding: 19px;
@@ -149,11 +150,9 @@
 }
 
 .paper-curl {
-  -webkit-border-radius: 0 0 120px 120px/0 0 6px 6px;
-  -moz-border-radius: 0 0 120px 120px/0 0 6px 6px;
-  -ms-border-radius: 0 0 120px 120px/0 0 6px 6px;
-  -o-border-radius: 0 0 120px 120px/0 0 6px 6px;
-  border-radius: 0 0 120px 120px/0 0 6px 6px;
+  -webkit-border-radius: 0 0;
+  -moz-border-radius: 0 0 120px 120px / 0 0 6px 6px;
+  border-radius: 0 0 120px 120px / 0 0 6px 6px;
 }
 .paper-curl:before, .paper-curl-left:before,
 .paper-curl-right:before, .paper-curl:after, .paper-curl-left:after,
@@ -187,19 +186,15 @@
 }
 
 .paper-curl-left {
-  -webkit-border-radius: 0 0 0 120px/0 0 0 6px;
-  -moz-border-radius: 0 0 0 120px/0 0 0 6px;
-  -ms-border-radius: 0 0 0 120px/0 0 0 6px;
-  -o-border-radius: 0 0 0 120px/0 0 0 6px;
-  border-radius: 0 0 0 120px/0 0 0 6px;
+  -webkit-border-radius: 0 0;
+  -moz-border-radius: 0 0 0 120px / 0 0 0 6px;
+  border-radius: 0 0 0 120px / 0 0 0 6px;
 }
 
 .paper-curl-right {
-  -webkit-border-radius: 0 0 120px 0/0 0 6px 0;
-  -moz-border-radius: 0 0 120px 0/0 0 6px 0;
-  -ms-border-radius: 0 0 120px 0/0 0 6px 0;
-  -o-border-radius: 0 0 120px 0/0 0 6px 0;
-  border-radius: 0 0 120px 0/0 0 6px 0;
+  -webkit-border-radius: 0 0;
+  -moz-border-radius: 0 0 120px 0 / 0 0 6px 0;
+  border-radius: 0 0 120px 0 / 0 0 6px 0;
 }
 
 .paper-raise:before {
@@ -225,11 +220,9 @@
 .paper-curve-right:before {
   top: 10px;
   bottom: 10px;
-  -webkit-border-radius: 0.1;
-  -moz-border-radius: 0.1;
-  -ms-border-radius: 0.1;
-  -o-border-radius: 0.1;
-  border-radius: 0.1;
+  -webkit-border-radius: 10px 100px;
+  -moz-border-radius: 10px / 100px;
+  border-radius: 10px / 100px;
 }
 
 .paper-curve-left:before, .paper-curve-vert:before {
@@ -251,11 +244,9 @@
 .paper-curve-horiz:before {
   left: 10px;
   right: 10px;
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  -ms-border-radius: 10;
-  -o-border-radius: 10;
-  border-radius: 10;
+  -webkit-border-radius: 100px 10px;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px;
 }
 
 .paper-curve-above:before {

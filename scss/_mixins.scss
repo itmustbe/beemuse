@@ -23,32 +23,3 @@
   }
   // Implied default of 980px to 1199px
 }
-
-// Paper
-
-@mixin box-shadow-double($shadow, $inset) {
-  -webkit-box-shadow: $shadow, $inset;
-     -moz-box-shadow: $shadow, $inset;
-          box-shadow: $shadow, $inset;
-}
-@mixin rotate($degrees) {
-  -webkit-transform: rotate($degrees);
-     -moz-transform: rotate($degrees);
-      -ms-transform: rotate($degrees);
-       -o-transform: rotate($degrees);
-          transform: rotate($degrees);
-}
-@mixin skew-rotate($skew, $degrees) {
-  -webkit-transform: skew($skew) rotate($degrees);
-     -moz-transform: skew($skew) rotate($degrees);
-      -ms-transform: skew($skew) rotate($degrees);
-       -o-transform: skew($skew) rotate($degrees);
-          transform: skew($skew) rotate($degrees);
-}
-@mixin skew($skew) {
-  -webkit-transform: skew($skew);
-     -moz-transform: skew($skew);
-      -ms-transform: skew($skew);
-       -o-transform: skew($skew);
-          transform: skew($skew);
-}

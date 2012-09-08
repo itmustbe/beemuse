@@ -100,7 +100,7 @@
       </div> <!-- /row -->
 
       <div class="row">
-        <div class="span6">
+        <div class="span2">
           <h3>Usage</h3>
           <div class="well">
             <p>
@@ -113,23 +113,8 @@
               Credit: <a href="http://nicolasgallagher.com/css-drop-shadows-without-images">Nicolas Gallagher</a> (tweaked a bit)
             </p>
           </div> <!-- /well -->
-          <h3>Variables</h3>
-          <div class="well">
-            <p>
-              Paper background &amp; border color
-            </p>
-            <p>
-              <code>$paperBackground: #fafafa;</code> (98% off-white)
-            </p>
-            <p>
-              Inset shadow color &amp; intensity
-            </p>
-            <p>
-              <code>$paperInset: rgba(128, 128, 128, 0.1);</code> (50% mid-gray, 10% opacity)
-            </p>
-          </div> <!-- /well -->
         </div> <!-- /span -->
-        <div class="span6">
+        <div class="span5">
           <h3>HTML</h3>
 <pre class="prettyprint linenums">
 &lt;!-- Classic --&gt;
@@ -152,6 +137,11 @@
 &lt;div class="paper paper-curl-right"&gt;
   ...
 &lt;/div&gt;
+</pre>
+        </div> <!-- /span -->
+        <div class="span5">
+          <h3>HTML</h3>
+<pre class="prettyprint linenums">
 &lt;!-- Horizontal curves --&gt;
 &lt;div class="paper paper-curve-horiz"&gt;
   ...
@@ -178,73 +168,11 @@
 
       <div class="row">
         <div class="span6">
-          <h3>SCSS Mixins</h3>
+          <h3>SCSS w/Compass CSS3</h3>
 <pre class="prettyprint linenums">
-@mixin box-shadow-double($shadow, $inset) {
-  -webkit-box-shadow: $shadow, $inset;
-     -moz-box-shadow: $shadow, $inset;
-          box-shadow: $shadow, $inset;
-}
-@mixin rotate($degrees) {
-  -webkit-transform: rotate($degrees);
-     -moz-transform: rotate($degrees);
-      -ms-transform: rotate($degrees);
-       -o-transform: rotate($degrees);
-          transform: rotate($degrees);
-}
-@mixin skew-rotate($skew, $degrees) {
-  -webkit-transform: skew($skew) rotate($degrees);
-     -moz-transform: skew($skew) rotate($degrees);
-      -ms-transform: skew($skew) rotate($degrees);
-       -o-transform: skew($skew) rotate($degrees);
-          transform: skew($skew) rotate($degrees);
-}
-@mixin skew($skew) {
-  -webkit-transform: skew($skew);
-     -moz-transform: skew($skew);
-      -ms-transform: skew($skew);
-       -o-transform: skew($skew);
-          transform: skew($skew);
-}
-</pre>
-        </div> <!-- /span -->
-        <div class="span6">
-          <h3>LESS Mixins</h3>
-<pre class="prettyprint linenums">
-.box-shadow-double(@shadow, @inset) {
-  -webkit-box-shadow: @shadow, @inset;
-     -moz-box-shadow: @shadow, @inset;
-          box-shadow: @shadow, @inset;
-}
-.rotate(@degrees) {
-  -webkit-transform: rotate(@degrees);
-     -moz-transform: rotate(@degrees);
-      -ms-transform: rotate(@degrees);
-       -o-transform: rotate(@degrees);
-          transform: rotate(@degrees);
-}
-.skew-rotate(@skew, @degrees) {
-  -webkit-transform: skew(@skew) rotate(@degrees);
-     -moz-transform: skew(@skew) rotate(@degrees);
-      -ms-transform: skew(@skew) rotate(@degrees);
-       -o-transform: skew(@skew) rotate(@degrees);
-          transform: skew(@skew) rotate(@degrees);
-}
-.skew(@skew) {
-  -webkit-transform: skew(@skew);
-     -moz-transform: skew(@skew);
-      -ms-transform: skew(@skew);
-       -o-transform: skew(@skew);
-          transform: skew(@skew);
-}
-</pre>
-        </div> <!-- /span -->
-      </div> <!-- /row -->
+$paperBackground: #fafafa;
+$paperInset: rgba(128, 128, 128, 0.1);
 
-      <div class="row">
-        <div class="span6">
-          <h3>SCSS</h3>
-<pre class="prettyprint linenums">
 // Paper
 
 .paper {
@@ -253,15 +181,12 @@
   margin-bottom: 20px;
   background: $paperBackground;
   border: 1px solid $paperBackground;
-  @include box-shadow-double(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $paperInset inset);
+  @include box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $paperInset inset);
   &:before,
   &:after {
     content: "";
     position: absolute;
     z-index: -2;
-  }
-  p:last-child {
-    margin-bottom: 0;
   }
 }
 
@@ -290,7 +215,7 @@
 // Curl corners
 
 .paper-curl {
-  @include border-radius(0 0 120px 120px / 0 0 6px 6px);
+  @include border-radius(0 0 120px 120px, 0 0 6px 6px);
   &:before,
   &:after {
     bottom: 12px;
@@ -302,18 +227,18 @@
   }
   &:before {
     left: 10px;
-    @include skew-rotate(-8deg, -3deg);
+    @include transform(skew(-8deg) rotate(-3deg));
   }
   &:after {
     right: 10px;
-    @include skew-rotate(8deg, 3deg);
+    @include transform(skew(8deg) rotate(3deg));
   }
 }
 .paper-curl-left {
-  @include border-radius(0 0 0 120px / 0 0 0 6px);
+  @include border-radius(0 0 0 120px, 0 0 0 6px);
 }
 .paper-curl-right {
-  @include border-radius(0 0 120px 0 / 0 0 6px 0);
+  @include border-radius(0 0 120px 0, 0 0 6px 0);
 }
 .paper-curl-left,
 .paper-curl-right {
@@ -332,7 +257,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  @include box-shadow-double(0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3));
+  @include box-shadow(0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3));
 }
 
 // Curves
@@ -346,7 +271,7 @@
     @extend .paper-curve:before;
     top: 10px;
     bottom: 10px;
-    @include border-radius(10px / 100px);
+    @include border-radius(10px, 100px);
   }
 }
 .paper-curve-left {
@@ -373,7 +298,7 @@
     @extend .paper-curve:before;
     left: 10px;
     right: 10px;
-    @include border-radius(100px / 10px);
+    @include border-radius(100px, 10px);
   }
 }
 .paper-curve-above {
@@ -397,9 +322,164 @@
 </pre>
         </div> <!-- /span -->
         <div class="span6">
-          <h3>LESS</h3>
+          <h3>Compiled CSS</h3>
 <pre class="prettyprint linenums">
-...
+.paper {
+  position: relative;
+  padding: 19px;
+  margin-bottom: 20px;
+  background: #fafafa;
+  border: 1px solid #fafafa;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+}
+.paper:before, .paper:after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+}
+
+.paper-lift:before, .paper-lift:after {
+  bottom: 15px;
+  width: 50%;
+  height: 20%;
+  max-width: 300px;
+  max-height: 100px;
+  -webkit-box-shadow: 0 15px 10px rgba(31, 31, 31, 0.7);
+  -moz-box-shadow: 0 15px 10px rgba(31, 31, 31, 0.7);
+  box-shadow: 0 15px 10px rgba(31, 31, 31, 0.7);
+}
+.paper-lift:before {
+  left: 10px;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.paper-lift:after {
+  right: 10px;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+.paper-curl {
+  -webkit-border-radius: 0 0;
+  -moz-border-radius: 0 0 120px 120px / 0 0 6px 6px;
+  border-radius: 0 0 120px 120px / 0 0 6px 6px;
+}
+.paper-curl:before, .paper-curl-left:before,
+.paper-curl-right:before, .paper-curl:after, .paper-curl-left:after,
+.paper-curl-right:after {
+  bottom: 12px;
+  width: 50%;
+  height: 55%;
+  max-width: 200px;
+  max-height: 100px;
+  -webkit-box-shadow: 0 8px 12px rgba(31, 31, 31, 0.5);
+  -moz-box-shadow: 0 8px 12px rgba(31, 31, 31, 0.5);
+  box-shadow: 0 8px 12px rgba(31, 31, 31, 0.5);
+}
+.paper-curl:before, .paper-curl-left:before,
+.paper-curl-right:before {
+  left: 10px;
+  -webkit-transform: skew(-8deg) rotate(-3deg);
+  -moz-transform: skew(-8deg) rotate(-3deg);
+  -ms-transform: skew(-8deg) rotate(-3deg);
+  -o-transform: skew(-8deg) rotate(-3deg);
+  transform: skew(-8deg) rotate(-3deg);
+}
+.paper-curl:after, .paper-curl-left:after,
+.paper-curl-right:after {
+  right: 10px;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
+}
+
+.paper-curl-left {
+  -webkit-border-radius: 0 0;
+  -moz-border-radius: 0 0 0 120px / 0 0 0 6px;
+  border-radius: 0 0 0 120px / 0 0 0 6px;
+}
+
+.paper-curl-right {
+  -webkit-border-radius: 0 0;
+  -moz-border-radius: 0 0 120px 0 / 0 0 6px 0;
+  border-radius: 0 0 120px 0 / 0 0 6px 0;
+}
+
+.paper-raise:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
+  -moz-box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
+  box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
+}
+
+.paper-curve:before, .paper-curve-left:before, .paper-curve-vert:before,
+.paper-curve-right:before, .paper-curve-above:before,
+.paper-curve-below:before,
+.paper-curve-horiz:before {
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.paper-curve-left:before, .paper-curve-vert:before,
+.paper-curve-right:before {
+  top: 10px;
+  bottom: 10px;
+  -webkit-border-radius: 10px 100px;
+  -moz-border-radius: 10px / 100px;
+  border-radius: 10px / 100px;
+}
+
+.paper-curve-left:before, .paper-curve-vert:before {
+  left: 0;
+  right: 50%;
+}
+
+.paper-curve-right:before {
+  left: 50%;
+  right: 0;
+}
+
+.paper-curve-vert:before {
+  right: 0;
+}
+
+.paper-curve-above:before,
+.paper-curve-below:before,
+.paper-curve-horiz:before {
+  left: 10px;
+  right: 10px;
+  -webkit-border-radius: 100px 10px;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px;
+}
+
+.paper-curve-above:before {
+  top: 0;
+  bottom: 50%;
+}
+
+.paper-curve-below:before, .paper-curve-horiz:before {
+  top: 50%;
+  bottom: 0;
+}
+
+.paper-curve-horiz:before {
+  top: 0;
+}
 </pre>
         </div> <!-- /span -->
       </div> <!-- /row -->

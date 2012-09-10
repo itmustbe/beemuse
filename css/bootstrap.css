@@ -145,7 +145,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #800000;
+  color: #cc0000;
   text-decoration: underline;
 }
 .img-rounded {
@@ -2764,7 +2764,7 @@ input[type="submit"].btn.btn-mini {
   border-radius: 0;
 }
 .btn-link:hover {
-  color: #800000;
+  color: #cc0000;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3214,8 +3214,8 @@ input[type="submit"].btn.btn-mini {
   margin-top: 6px;
 }
 .nav .dropdown-toggle:hover .caret {
-  border-top-color: #800000;
-  border-bottom-color: #800000;
+  border-top-color: #cc0000;
+  border-bottom-color: #cc0000;
 }
 /* move down carets for tabs */
 .nav-tabs .dropdown-toggle .caret {

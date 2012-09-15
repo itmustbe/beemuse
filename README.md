@@ -1,7 +1,7 @@
 Beemuse
 =================
 
-This is a growing collection of front end CSS3 components I'm soon planning to release as a Ruby Gem... September 2012 :)
+This is a growing collection of framework-agnostic front end CSS3 components
 
 Dependencies: [Compass](https://github.com/chriseppstein/compass) & [SASS](https://github.com/nex3/sass)
 
@@ -9,16 +9,35 @@ Suggestions: use with [Foundation](https://github.com/zurb/foundation) or [Boots
 
 
 
-Quick start
------------
+Quick install
+-------------
 
-Demos & Docs: http://beemuse.com
+```shell
+yeoman install beemuse
+```
+```shell
+bower install beemuse
+```
+```shell
+gem install beemuse
+```
+
+
+Manual install
+--------------
 
 Simplest: include beemuse.css in the head section of your page
 
 Advanced: modify included scss files with customizable variables
 
 Modular: include just the modules you wish in beemuse.scss
+
+
+
+Documentation
+-------------
+
+Demos: http://beemuse.com
 
 
 

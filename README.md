@@ -44,7 +44,7 @@ Demos: http://beemuse.com
 Author
 ------
 
-**Elise** http://twitter.com/itmustbe
+**Elise** http://itmustbe.com
 
 
 

@@ -28,7 +28,7 @@ gem install beemuse
 Documentation
 -------------
 
-Demos: http://beemuse.com
+Usage & Demos: http://beemuse.com
 
 
 

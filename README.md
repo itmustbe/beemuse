@@ -3,7 +3,9 @@ Beemuse
 
 This is a growing collection of framework-agnostic front end CSS3 components
 
-Dependencies: [Compass](https://github.com/chriseppstein/compass) & [SASS](https://github.com/nex3/sass)
+The latest stable package is located here: [v0.1.5](https://github.com/itmustbe/package-beemuse) (just scss and css)
+
+Dependencies: [Compass](https://github.com/chriseppstein/compass) (and thus [SASS](https://github.com/nex3/sass) )
 
 Suggestions: use with [Foundation](https://github.com/zurb/foundation) or [Bootstrap](http://twitter.github.com/bootstrap)
 

@@ -3,7 +3,7 @@ Beemuse
 
 This is a growing collection of framework-agnostic front end CSS3 components
 
-The latest stable package is located here: [v0.1.5](https://github.com/itmustbe/package-beemuse) (just scss and css)
+The latest stable package is: [v0.1.5](https://github.com/itmustbe/package-beemuse)
 
 Dependencies: [Compass](https://github.com/chriseppstein/compass) (and thus [SASS](https://github.com/nex3/sass) )
 
@@ -11,8 +11,8 @@ Suggestions: use with [Foundation](https://github.com/zurb/foundation) or [Boots
 
 
 
-Quick install
--------------
+Installation
+------------
 
 ```shell
 yeoman install beemuse
@@ -23,17 +23,6 @@ bower install beemuse
 ```shell
 gem install beemuse
 ```
-
-
-Manual install
---------------
-
-Simplest: include beemuse.css in the head section of your page
-
-Advanced: modify included scss files with customizable variables
-
-Modular: include just the modules you wish in beemuse.scss
-
 
 
 Documentation

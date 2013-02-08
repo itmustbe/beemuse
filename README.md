@@ -20,9 +20,7 @@ yeoman install beemuse
 ```shell
 bower install beemuse
 ```
-```shell
-gem install beemuse
-```
+Or simply copy code from http://beemuse.com
 
 
 Documentation

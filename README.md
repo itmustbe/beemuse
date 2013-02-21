@@ -15,9 +15,6 @@ Installation
 ------------
 
 ```shell
-yeoman install beemuse
-```
-```shell
 bower install beemuse
 ```
 Or simply copy code from http://beemuse.com
@@ -40,7 +37,7 @@ Author
 Copyright and license
 ---------------------
 
-Copyright 2012 ITMUSTBE, Inc.
+Copyright 2013 ITMUSTBE, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.

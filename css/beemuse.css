@@ -262,3 +262,235 @@
 .paper-curve-horiz:before {
   top: 0;
 }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ribbon {
+  margin: 0 5px 10px 0;
+}
+.ribbon p {
+  margin: 0;
+  padding: 11px 15px;
+  color: white;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+}
+
+.ribbon {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-transition: all, 0.3s, cubic-bezier(0.12, 0.89, 0.83, 0.67);
+  -moz-transition: all, 0.3s, cubic-bezier(0.12, 0.89, 0.83, 0.67);
+  -o-transition: all, 0.3s, cubic-bezier(0.12, 0.89, 0.83, 0.67);
+  transition: all, 0.3s, cubic-bezier(0.12, 0.89, 0.83, 0.67);
+}
+.ribbon .ribbon-stitch {
+  position: relative;
+  overflow: hidden;
+}
+.ribbon .fabric {
+  position: relative;
+  z-index: 2;
+}
+.ribbon .fabric:after, .ribbon .fabric:before {
+  content: '';
+  position: absolute;
+}
+.ribbon .top-right,
+.ribbon .bottom-right,
+.ribbon .top-left,
+.ribbon .bottom-left {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  z-index: 1;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.ribbon .top-right {
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+.ribbon .top-left {
+  -webkit-box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ribbon-red .fabric {
+  background-color: #911919;
+}
+.ribbon-red .top-right,
+.ribbon-red .bottom-right,
+.ribbon-red .top-left,
+.ribbon-red .bottom-left {
+  background: #911919;
+}
+.ribbon-red.ribbon-horizontal .fabric:after {
+  border-top: 1px dashed #631a15;
+  border-bottom: 1px dashed #631a15;
+}
+.ribbon-red.ribbon-horizontal .fabric:before {
+  border-top: 1px dashed #da5050;
+  border-bottom: 1px dashed #da5050;
+}
+.ribbon-red.ribbon-horizontal.ribbon-right .fabric {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #c73b3c), color-stop(100%, #911919));
+  background-image: -webkit-linear-gradient(left, #c73b3c, #911919);
+  background-image: -moz-linear-gradient(left, #c73b3c, #911919);
+  background-image: -o-linear-gradient(left, #c73b3c, #911919);
+  background-image: linear-gradient(left, #c73b3c, #911919);
+}
+.ribbon-red.ribbon-horizontal.ribbon-right .fabric:after {
+  border-left: 1px dashed #631a15;
+}
+.ribbon-red.ribbon-horizontal.ribbon-right .fabric:before {
+  border-left: 1px dashed #da5050;
+}
+.ribbon-red.ribbon-horizontal.ribbon-left .fabric {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #911919), color-stop(100%, #c73b3c));
+  background-image: -webkit-linear-gradient(left, #911919, #c73b3c);
+  background-image: -moz-linear-gradient(left, #911919, #c73b3c);
+  background-image: -o-linear-gradient(left, #911919, #c73b3c);
+  background-image: linear-gradient(left, #911919, #c73b3c);
+}
+.ribbon-red.ribbon-horizontal.ribbon-left .fabric:after {
+  border-right: 1px dashed #631a15;
+}
+.ribbon-red.ribbon-horizontal.ribbon-left .fabric:before {
+  border-right: 1px dashed #da5050;
+}
+.ribbon-red.ribbon-horizontal.ribbon-both .fabric {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #911919), color-stop(33.33333%, #c73b3c), color-stop(66.66667%, #c73b3c), color-stop(100%, #911919));
+  background-image: -webkit-linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
+  background-image: -moz-linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
+  background-image: -o-linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
+  background-image: linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
+}
+
+.ribbon-horizontal {
+  height: 44px;
+}
+.ribbon-horizontal .ribbon-stitch {
+  height: 44px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.ribbon-horizontal .fabric {
+  height: 44px;
+}
+.ribbon-horizontal .fabric:after {
+  top: 5px;
+  right: 0;
+  bottom: 8px;
+  left: 0;
+}
+.ribbon-horizontal .fabric:before {
+  top: 6px;
+  right: 1px;
+  bottom: 7px;
+  left: 1px;
+}
+.ribbon-horizontal .top-right,
+.ribbon-horizontal .bottom-right {
+  right: 7px;
+}
+.ribbon-horizontal .top-left,
+.ribbon-horizontal .bottom-left {
+  left: 7px;
+}
+.ribbon-horizontal .top-right,
+.ribbon-horizontal .top-left {
+  bottom: 22px;
+}
+.ribbon-horizontal .bottom-right,
+.ribbon-horizontal .bottom-left {
+  top: 22px;
+}
+.ribbon-horizontal.ribbon-right {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.ribbon-horizontal.ribbon-right .ribbon-stitch {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding-right: 21px;
+}
+.ribbon-horizontal.ribbon-right .fabric {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.ribbon-horizontal.ribbon-right .fabric:after, .ribbon-horizontal.ribbon-right .fabric:before {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  margin-left: 6px;
+}
+.ribbon-horizontal.ribbon-left {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.ribbon-horizontal.ribbon-left .ribbon-stitch {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding-left: 21px;
+}
+.ribbon-horizontal.ribbon-left .fabric {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.ribbon-horizontal.ribbon-left .fabric:after, .ribbon-horizontal.ribbon-left .fabric:before {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin-right: 6px;
+}
+.ribbon-horizontal.ribbon-both .ribbon-stitch {
+  padding-right: 21px;
+  padding-left: 21px;
+}

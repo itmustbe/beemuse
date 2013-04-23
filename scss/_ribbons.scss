@@ -22,6 +22,10 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 .ribbon {
     margin: 0 5px 10px 0;
 
+    &.ribbon-set {
+        margin: 0 -15px 10px -20px;
+    }
+
     p {
         margin: 0;
         padding: 12px 15px;

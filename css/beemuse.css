@@ -272,6 +272,9 @@
 .ribbon {
   margin: 0 5px 10px 0;
 }
+.ribbon.ribbon-set {
+  margin: 0 -15px 10px -20px;
+}
 .ribbon p {
   margin: 0;
   padding: 12px 15px;

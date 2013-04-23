@@ -274,7 +274,7 @@
 }
 .ribbon p {
   margin: 0;
-  padding: 11px 15px;
+  padding: 12px 15px;
   color: white;
   text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
   font-size: 15px;
@@ -310,9 +310,11 @@
 .ribbon .top-right,
 .ribbon .bottom-right,
 .ribbon .top-left,
-.ribbon .bottom-left {
-  width: 44px;
-  height: 44px;
+.ribbon .bottom-left,
+.ribbon .center-left,
+.ribbon .center-right {
+  width: 42px;
+  height: 42px;
   position: absolute;
   z-index: 1;
   -webkit-transform: rotate(45deg);
@@ -338,7 +340,9 @@
 .ribbon-red .top-right,
 .ribbon-red .bottom-right,
 .ribbon-red .top-left,
-.ribbon-red .bottom-left {
+.ribbon-red .bottom-left,
+.ribbon-red .center-left,
+.ribbon-red .center-right {
   background: #911919;
 }
 .ribbon-red.ribbon-horizontal .fabric:after {
@@ -384,43 +388,47 @@
 }
 
 .ribbon-horizontal {
-  height: 44px;
+  height: 42px;
 }
 .ribbon-horizontal .ribbon-stitch {
-  height: 44px;
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  height: 42px;
 }
 .ribbon-horizontal .fabric {
-  height: 44px;
+  height: 42px;
 }
 .ribbon-horizontal .fabric:after {
   top: 5px;
   right: 0;
-  bottom: 8px;
+  bottom: 6px;
   left: 0;
 }
 .ribbon-horizontal .fabric:before {
   top: 6px;
   right: 1px;
-  bottom: 7px;
+  bottom: 5px;
   left: 1px;
 }
 .ribbon-horizontal .top-right,
-.ribbon-horizontal .bottom-right {
-  right: 7px;
+.ribbon-horizontal .bottom-right,
+.ribbon-horizontal .center-right {
+  right: 9px;
 }
 .ribbon-horizontal .top-left,
-.ribbon-horizontal .bottom-left {
-  left: 7px;
+.ribbon-horizontal .bottom-left,
+.ribbon-horizontal .center-left {
+  left: 9px;
 }
 .ribbon-horizontal .top-right,
 .ribbon-horizontal .top-left {
-  bottom: 22px;
+  bottom: 21px;
 }
 .ribbon-horizontal .bottom-right,
 .ribbon-horizontal .bottom-left {
-  top: 22px;
+  top: 21px;
+}
+.ribbon-horizontal .center-left,
+.ribbon-horizontal .center-right {
+  bottom: 0;
 }
 .ribbon-horizontal.ribbon-right {
   -moz-border-radius-topleft: 4px;
@@ -437,7 +445,7 @@
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  padding-right: 21px;
+  padding-right: 22px;
 }
 .ribbon-horizontal.ribbon-right .fabric {
   -moz-border-radius-topleft: 4px;
@@ -471,7 +479,7 @@
   -moz-border-radius-bottomright: 4px;
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  padding-left: 21px;
+  padding-left: 22px;
 }
 .ribbon-horizontal.ribbon-left .fabric {
   -moz-border-radius-topright: 4px;
@@ -491,6 +499,6 @@
   margin-right: 6px;
 }
 .ribbon-horizontal.ribbon-both .ribbon-stitch {
-  padding-right: 21px;
-  padding-left: 21px;
+  padding-right: 22px;
+  padding-left: 22px;
 }

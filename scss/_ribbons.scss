@@ -3,7 +3,7 @@
 // Variables
 // **************************************************************************
 
-$ribbonHorizHeight: 44px;
+$ribbonHorizHeight: 42px;
 
 $brightRed:              #c73b3c; // hsl(0, 70, 78)
 $subtleRed:              #da5050; // hsl(0, 63, 85)
@@ -24,7 +24,7 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 
     p {
         margin: 0;
-        padding: 11px 15px;
+        padding: 12px 15px;
         color: white;
         text-shadow: 0 -1px rgba(black, 0.5);
         font-size: 15px;
@@ -60,7 +60,9 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
     .top-right,
     .bottom-right,
     .top-left,
-    .bottom-left {
+    .bottom-left,
+    .center-left,
+    .center-right {
         width: $ribbonHorizHeight;
         height: $ribbonHorizHeight;
         position: absolute;
@@ -88,7 +90,9 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
     .top-right,
     .bottom-right,
     .top-left,
-    .bottom-left {
+    .bottom-left,
+    .center-left,
+    .center-right {
         background: $shadowRed;
     }
 
@@ -148,8 +152,8 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 
     .ribbon-stitch {
         height: $ribbonHorizHeight;
-        border-top: 1px solid rgba(black, 0.3);
-        border-bottom: 1px solid rgba(black, 0.3);
+        // border-top: 1px solid rgba(black, 0.3);
+        // border-bottom: 1px solid rgba(black, 0.3);
     }
 
     .fabric {
@@ -158,26 +162,28 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
         &:after {
             top: 5px;
             right: 0;
-            bottom: 8px;
+            bottom: 6px;
             left: 0;
         }
 
         &:before {
             top: 6px;
             right: 1px;
-            bottom: 7px;
+            bottom: 5px;
             left: 1px;
         }
     }
     
     .top-right,
-    .bottom-right {
-        right: 7px;
+    .bottom-right,
+    .center-right {
+        right: 9px;
     }
 
     .top-left,
-    .bottom-left {
-        left: 7px;
+    .bottom-left,
+    .center-left {
+        left: 9px;
     }
 
     .top-right,
@@ -188,6 +194,11 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
     .bottom-right,
     .bottom-left {
         top: ($ribbonHorizHeight / 2);
+    }
+
+    .center-left,
+    .center-right {
+        bottom: 0;
     }
 
     @mixin radii-right {
@@ -205,7 +216,7 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 
         .ribbon-stitch {
             @include radii-right;
-            padding-right: 21px;
+            padding-right: 22px;
         }
 
         .fabric {
@@ -224,7 +235,7 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 
         .ribbon-stitch {
             @include radii-left;
-            padding-left: 21px;
+            padding-left: 22px;
         }
 
         .fabric {
@@ -240,8 +251,8 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
      
     &.ribbon-both {
         .ribbon-stitch {
-            padding-right: 21px;
-            padding-left: 21px;
+            padding-right: 22px;
+            padding-left: 22px;
         }
     }
 }

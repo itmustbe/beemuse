@@ -1,7 +1,7 @@
 Beemuse
 =================
 
-This is a growing collection of framework-agnostic front end CSS3 components
+This is a growing collection of framework-agnostic front-end CSS3 components
 
 Components: Paper, Stitches, 3D Flips, Stitched Ribbons
 

@@ -31,9 +31,9 @@ Usage & Demos: http://beemuse.com
 Changelog
 ---------
 
-Version 0.2: Experimental Ribbons component
+Version 0.2: Stitched Ribbons; switch to MIT license
 
-Version 0.1.5: Package for Bower registry
+Version 0.1.5: Package all components for Bower registry
 
 Version 0.1: Initial release with Paper, Stitches, and 3dflips
 

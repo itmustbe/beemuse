@@ -19,7 +19,6 @@ Installation
 ```shell
 bower install beemuse
 ```
-Or simply clone this repo
 
 
 

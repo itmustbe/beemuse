@@ -1,13 +1,21 @@
-/*
+/****************************************************************************
  * Beemuse
  *
- * Copyright 2012 ITMUSTBE, Inc
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
+ * Copyright 2013 ITMUSTBE, Inc.
+ * Licensed under the MIT License
+ * http://opensource.org/licenses/MIT
  *
  * Designed and built with all the buzz in the world @itmustbe
- */
-/* 3D Flips */
+****************************************************************************/
+/****************************************************************************
+ * Beemuse: 3D Flips
+ *
+ * Copyright 2013 ITMUSTBE, Inc.
+ * Licensed under the MIT License
+ * http://opensource.org/licenses/MIT
+ *
+ * Designed and built with all the buzz in the world @itmustbe
+****************************************************************************/
 .flip {
   position: relative;
   -webkit-perspective: 1000;
@@ -63,7 +71,15 @@
   transform: rotateY(0deg);
 }
 
-/* Stitches */
+/****************************************************************************
+ * Beemuse: Stitches
+ *
+ * Copyright 2013 ITMUSTBE, Inc.
+ * Licensed under the MIT License
+ * http://opensource.org/licenses/MIT
+ *
+ * Designed and built with all the buzz in the world @itmustbe
+****************************************************************************/
 .stitch {
   position: relative;
   z-index: 0;
@@ -105,7 +121,15 @@
   box-shadow: 0 0 0 1px white;
 }
 
-/* Paper */
+/****************************************************************************
+ * Beemuse: Paper
+ *
+ * Copyright 2013 ITMUSTBE, Inc.
+ * Licensed under the MIT License
+ * http://opensource.org/licenses/MIT
+ *
+ * Designed and built with all the buzz in the world @itmustbe
+****************************************************************************/
 .paper {
   position: relative;
   padding: 19px;
@@ -263,24 +287,30 @@
   top: 0;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
+/****************************************************************************
+ * Beemuse: Ribbons
+ *
+ * Copyright 2013 ITMUSTBE, Inc.
+ * Licensed under the MIT License
+ * http://opensource.org/licenses/MIT
+ *
+ * Designed and built with all the buzz in the world @itmustbe
+****************************************************************************/
 .ribbon {
   margin: 0 5px 10px 0;
 }
 .ribbon.ribbon-set {
   margin: 0 -15px 10px -20px;
 }
-.ribbon p {
+.ribbon p, .ribbon a {
   margin: 0;
-  padding: 12px 15px;
-  color: white;
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
-  font-size: 15px;
+  padding: 10px;
+}
+.ribbon.ribbon-right p, .ribbon.ribbon-right a {
+  padding-left: 15px;
+}
+.ribbon.ribbon-left p, .ribbon.ribbon-left a {
+  padding-right: 15px;
 }
 
 .ribbon {
@@ -298,24 +328,28 @@
   -o-transition: all, 0.3s, cubic-bezier(0.12, 0.89, 0.83, 0.67);
   transition: all, 0.3s, cubic-bezier(0.12, 0.89, 0.83, 0.67);
 }
+.ribbon p, .ribbon a {
+  display: block;
+}
 .ribbon .ribbon-stitch {
   position: relative;
   overflow: hidden;
 }
-.ribbon .fabric {
+.ribbon .ribbon-fabric {
   position: relative;
   z-index: 2;
 }
-.ribbon .fabric:after, .ribbon .fabric:before {
+.ribbon .ribbon-fabric:after, .ribbon .ribbon-fabric:before {
   content: '';
   position: absolute;
+  z-index: -1;
 }
-.ribbon .top-right,
-.ribbon .bottom-right,
-.ribbon .top-left,
-.ribbon .bottom-left,
-.ribbon .center-left,
-.ribbon .center-right {
+.ribbon .ribbon-top-right,
+.ribbon .ribbon-bottom-right,
+.ribbon .ribbon-top-left,
+.ribbon .ribbon-bottom-left,
+.ribbon .ribbon-center-left,
+.ribbon .ribbon-center-right {
   width: 42px;
   height: 42px;
   position: absolute;
@@ -326,63 +360,67 @@
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.ribbon .top-right {
+.ribbon .ribbon-top-right {
   -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
-.ribbon .top-left {
+.ribbon .ribbon-top-left {
   -webkit-box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-.ribbon-red .fabric {
+.ribbon-red p, .ribbon-red a {
+  color: white;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+}
+.ribbon-red .ribbon-fabric {
   background-color: #911919;
 }
-.ribbon-red .top-right,
-.ribbon-red .bottom-right,
-.ribbon-red .top-left,
-.ribbon-red .bottom-left,
-.ribbon-red .center-left,
-.ribbon-red .center-right {
+.ribbon-red .ribbon-top-right,
+.ribbon-red .ribbon-bottom-right,
+.ribbon-red .ribbon-top-left,
+.ribbon-red .ribbon-bottom-left,
+.ribbon-red .ribbon-center-left,
+.ribbon-red .ribbon-center-right {
   background: #911919;
 }
-.ribbon-red.ribbon-horizontal .fabric:after {
+.ribbon-red.ribbon-horizontal .ribbon-fabric:after {
   border-top: 1px dashed #631a15;
   border-bottom: 1px dashed #631a15;
 }
-.ribbon-red.ribbon-horizontal .fabric:before {
+.ribbon-red.ribbon-horizontal .ribbon-fabric:before {
   border-top: 1px dashed #da5050;
   border-bottom: 1px dashed #da5050;
 }
-.ribbon-red.ribbon-horizontal.ribbon-right .fabric {
+.ribbon-red.ribbon-horizontal.ribbon-right .ribbon-fabric {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #c73b3c), color-stop(100%, #911919));
   background-image: -webkit-linear-gradient(left, #c73b3c, #911919);
   background-image: -moz-linear-gradient(left, #c73b3c, #911919);
   background-image: -o-linear-gradient(left, #c73b3c, #911919);
   background-image: linear-gradient(left, #c73b3c, #911919);
 }
-.ribbon-red.ribbon-horizontal.ribbon-right .fabric:after {
+.ribbon-red.ribbon-horizontal.ribbon-right .ribbon-fabric:after {
   border-left: 1px dashed #631a15;
 }
-.ribbon-red.ribbon-horizontal.ribbon-right .fabric:before {
+.ribbon-red.ribbon-horizontal.ribbon-right .ribbon-fabric:before {
   border-left: 1px dashed #da5050;
 }
-.ribbon-red.ribbon-horizontal.ribbon-left .fabric {
+.ribbon-red.ribbon-horizontal.ribbon-left .ribbon-fabric {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #911919), color-stop(100%, #c73b3c));
   background-image: -webkit-linear-gradient(left, #911919, #c73b3c);
   background-image: -moz-linear-gradient(left, #911919, #c73b3c);
   background-image: -o-linear-gradient(left, #911919, #c73b3c);
   background-image: linear-gradient(left, #911919, #c73b3c);
 }
-.ribbon-red.ribbon-horizontal.ribbon-left .fabric:after {
+.ribbon-red.ribbon-horizontal.ribbon-left .ribbon-fabric:after {
   border-right: 1px dashed #631a15;
 }
-.ribbon-red.ribbon-horizontal.ribbon-left .fabric:before {
+.ribbon-red.ribbon-horizontal.ribbon-left .ribbon-fabric:before {
   border-right: 1px dashed #da5050;
 }
-.ribbon-red.ribbon-horizontal.ribbon-both .fabric {
+.ribbon-red.ribbon-horizontal.ribbon-both .ribbon-fabric {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #911919), color-stop(33.33333%, #c73b3c), color-stop(66.66667%, #c73b3c), color-stop(100%, #911919));
   background-image: -webkit-linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
   background-image: -moz-linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
@@ -396,41 +434,41 @@
 .ribbon-horizontal .ribbon-stitch {
   height: 42px;
 }
-.ribbon-horizontal .fabric {
+.ribbon-horizontal .ribbon-fabric {
   height: 42px;
 }
-.ribbon-horizontal .fabric:after {
+.ribbon-horizontal .ribbon-fabric:after {
   top: 5px;
   right: 0;
   bottom: 6px;
   left: 0;
 }
-.ribbon-horizontal .fabric:before {
+.ribbon-horizontal .ribbon-fabric:before {
   top: 6px;
   right: 1px;
   bottom: 5px;
   left: 1px;
 }
-.ribbon-horizontal .top-right,
-.ribbon-horizontal .bottom-right,
-.ribbon-horizontal .center-right {
+.ribbon-horizontal .ribbon-top-right,
+.ribbon-horizontal .ribbon-bottom-right,
+.ribbon-horizontal .ribbon-center-right {
   right: 9px;
 }
-.ribbon-horizontal .top-left,
-.ribbon-horizontal .bottom-left,
-.ribbon-horizontal .center-left {
+.ribbon-horizontal .ribbon-top-left,
+.ribbon-horizontal .ribbon-bottom-left,
+.ribbon-horizontal .ribbon-center-left {
   left: 9px;
 }
-.ribbon-horizontal .top-right,
-.ribbon-horizontal .top-left {
+.ribbon-horizontal .ribbon-top-right,
+.ribbon-horizontal .ribbon-top-left {
   bottom: 21px;
 }
-.ribbon-horizontal .bottom-right,
-.ribbon-horizontal .bottom-left {
+.ribbon-horizontal .ribbon-bottom-right,
+.ribbon-horizontal .ribbon-bottom-left {
   top: 21px;
 }
-.ribbon-horizontal .center-left,
-.ribbon-horizontal .center-right {
+.ribbon-horizontal .ribbon-center-left,
+.ribbon-horizontal .ribbon-center-right {
   bottom: 0;
 }
 .ribbon-horizontal.ribbon-right {
@@ -450,7 +488,7 @@
   border-bottom-left-radius: 4px;
   padding-right: 22px;
 }
-.ribbon-horizontal.ribbon-right .fabric {
+.ribbon-horizontal.ribbon-right .ribbon-fabric {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
@@ -458,7 +496,7 @@
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-.ribbon-horizontal.ribbon-right .fabric:after, .ribbon-horizontal.ribbon-right .fabric:before {
+.ribbon-horizontal.ribbon-right .ribbon-fabric:after, .ribbon-horizontal.ribbon-right .ribbon-fabric:before {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
@@ -484,7 +522,7 @@
   border-bottom-right-radius: 4px;
   padding-left: 22px;
 }
-.ribbon-horizontal.ribbon-left .fabric {
+.ribbon-horizontal.ribbon-left .ribbon-fabric {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
@@ -492,7 +530,7 @@
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.ribbon-horizontal.ribbon-left .fabric:after, .ribbon-horizontal.ribbon-left .fabric:before {
+.ribbon-horizontal.ribbon-left .ribbon-fabric:after, .ribbon-horizontal.ribbon-left .ribbon-fabric:before {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;

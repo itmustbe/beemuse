@@ -1,45 +1,149 @@
-@import "mixins";
+@import "compass/css3";
 
-// Modifies BS defaults along with Beemuse values in less/variables
+/****************************************************************************
+ * Modifies BS defaults along with Beemuse values in less/variables:
+ *
+ * @brand-primary:         #cc0000;
+ * @body-bg:               #eee;
+ * @text-color:            #333;
+ * @link-hover-color:      @link-color;
+ * @headings-font-weight:  400;
+ * @hr-border:             @gray-light;
+****************************************************************************/
 
-// Body Setup
+// Responsive Media Queries
+// **************************************************************************
+
+// Tiny screen / phone
+$screen-tiny:                480px;
+$screen-phone:               $screen-tiny;
+
+// Small screen / tablet
+$screen-small:               768px;
+$screen-tablet:              $screen-small;
+
+// Medium screen / desktop
+$screen-medium:              992px;
+$screen-desktop:             $screen-medium;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-small-max:           ($screen-medium - 1);
+$screen-tablet-max:          $screen-small-max;
+
+// Large screen / wide desktop
+$screen-large:               1200px;
+$screen-large-desktop:       $screen-large;
+
+// Media mixin based on BS breakpoints above
+@mixin media($type) {
+    // no phone query -- mobile first!
+    @if $type == tablet {
+        @media (min-width: $screen-tablet) { @content }
+    }
+    @if $type == desktop {
+        @media (min-width: $screen-desktop) { @content }
+    }
+    @if $type == wide {
+        @media (min-width: $screen-large-desktop) { @content }
+    }
+}
+
+// Layout
+// **************************************************************************
 
 body {
-  padding-top: 60px; // 60px to make the container go all the way to the bottom of the top navbar
-  padding-bottom: 60px; // 60px to make the container go all the way to the top of the bottom navbar
-  @include media(max767) {
-    padding-bottom: 0;
-  }
-  @include media(min768max979) {
-    padding-bottom: 0;
-  }
+    padding-top: 60px;
+    padding-bottom: 75px;
+}
+
+.license {
+    @include media(tablet) {
+        text-align: right;
+    }
 }
 
 // BS Type
+// **************************************************************************
 
-h1 { font-size: 30px; line-height: 20px; }
-h2 { font-size: 24px; line-height: 20px; }
-h3 { font-size: 18px; line-height: 20px; }
-h4 { font-size: 14px; line-height: 20px; }
-h5 { font-size: 12px; line-height: 20px; }
-h6 { font-size: 11px; line-height: 20px; }
-h1, h2, h3, h4, h5, h6 {
-  text-shadow: 0 1px 1px #fff; // indented look
-}
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 11px; }
 
-// BS Code
-
-code,
-pre {
-  font-size: 12px;
+.main {
+    text-shadow: 0 1px 1px white;
 }
 
 // BS Wells, BM Stitches, BM Paper
+// **************************************************************************
 
 .well,
 .stitch,
 .paper {
-  p:last-child {
-    margin-bottom: 0;
-  }
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// BS Navbars
+// **************************************************************************
+
+.navbar-brand {
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    .reg {
+        font-size: 6px;
+    }
+
+    .navbar-fixed-top & {
+        padding-left: 7px;
+    }
+
+    .navbar-fixed-bottom & {
+        padding-left: 5px;
+    }
+}
+
+.navbar {
+    @include box-shadow(0 0 15px #999);
+    text-shadow: 0 -1px 1px black;
+}
+
+// BS Buttons
+// **************************************************************************
+
+.btn {
+    font-weight: 400;
+}
+
+.btn-default {
+    @mixin border {
+        border: 1px solid #bbb;
+        border-bottom-color: #a2a2a2;
+        border-top-color: #d1d1d1;
+    }
+
+    color: #333;
+    @include border;
+    background-color: mix(white, #eee);
+    @include background-image(linear-gradient(white, #eee));
+    @include box-shadow(inset 0 1px 0 rgba(white, 0.2), 0 1px 2px rgba(black, 0.1));
+
+    &:hover,
+    &:focus {
+        color: #333;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        @include border;
+        background-color: mix(white, #dedede);
+        @include background-image(linear-gradient(white, #dedede));
+    }
 }

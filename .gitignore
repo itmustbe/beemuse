@@ -12,3 +12,11 @@ Thumbs.db
 
 # SASS
 .sass-cache
+
+# Search
+robots.txt
+
+# Yeoman
+bower_components/
+.htaccess
+404.html

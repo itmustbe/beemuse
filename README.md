@@ -5,7 +5,7 @@ This is a growing collection of framework-agnostic front-end CSS3 components
 
 Components: Paper, Stitches, 3D Flips, Stitched Ribbons
 
-The latest stable package is: [v0.2.0](https://github.com/itmustbe/package-beemuse)
+The latest stable package is: [v0.2.1](https://github.com/itmustbe/package-beemuse)
 
 Dependencies: [Compass](https://github.com/chriseppstein/compass) (and thus [SASS](https://github.com/nex3/sass) )
 
@@ -31,6 +31,8 @@ Usage & Demos: http://beemuse.com
 
 Changelog
 ---------
+
+Version 0.2.1: Stitched Ribbons (updated)
 
 Version 0.2.0: Stitched Ribbons; switch to MIT license
 

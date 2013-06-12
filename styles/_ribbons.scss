@@ -15,10 +15,10 @@
 
 $ribbonHorizHeight: 42px;
 
-$brightRed:              #c73b3c; // hsl(0, 70, 78)
-$subtleRed:              #da5050; // hsl(0, 63, 85)
-$shadowRed:              #911919; // hsl(0, 83, 57)
-$darkRed:                #631a15; // hsl(4, 79, 39)
+$ribbonHighlight:           #fff; // white
+$ribbonShadow:              #f7f7f7; // 97% off-white
+$ribbonStitch:              #ccc; // 80% light-gray
+$ribbonText:                #666; // 40% dark-gray
 
 // @todo stitch offset and border radii should move up here
 
@@ -54,6 +54,121 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 // **************************************************************************
 
 .ribbon {
+    .ribbon-stitch {
+        &:after {
+            z-index: 3;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+        }
+        &:before {
+            z-index: 3;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+        }
+        &:after,
+        &:before {
+            @include background-image(linear-gradient(left, rgba($ribbonStitch, 0.4), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.4)));
+        }
+    }
+}
+.ribbon-left {
+    .ribbon-stitch {
+        &:after,
+        &:before {
+            @include background-image(linear-gradient(left, rgba($ribbonStitch, 0.4), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8)));
+        }
+    }
+}
+.ribbon-right {
+    .ribbon-stitch {
+        &:after,
+        &:before {
+            @include background-image(linear-gradient(left, rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.4)));
+        }
+    }
+}
+.ribbon-out {
+    .ribbon-stitch {
+        &:after,
+        &:before {
+            left: 26px;
+            right: 26px;
+        }
+    }
+    &.ribbon-left {
+        .ribbon-stitch {
+            &:after,
+            &:before {
+                left: 26px;
+                right: 0;
+            }
+        }
+    }
+    &.ribbon-right {
+        .ribbon-stitch {
+            &:after,
+            &:before {
+                left: 0;
+                right: 26px;
+            }
+        }
+    }
+}
+.ribbon-in {
+    .ribbon-stitch {
+        &:after,
+        &:before {
+            left: 6px;
+            right: 6px;
+        }
+    }
+    &.ribbon-left {
+        .ribbon-stitch {
+            &:after,
+            &:before {
+                left: 6px;
+                right: 0;
+            }
+        }
+    }
+    &.ribbon-right {
+        .ribbon-stitch {
+            &:after,
+            &:before {
+                left: 0;
+                right: 6px;
+            }
+        }
+    }
+}
+.ribbon-in-out {
+    .ribbon-stitch {
+        &:after,
+        &:before {
+            left: 6px;
+            right: 26px;
+        }
+    }
+}
+.ribbon-out-in {
+    .ribbon-stitch {
+        &:after,
+        &:before {
+            left: 26px;
+            right: 6px;
+        }
+    }
+}
+
+.ribbon {
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -69,7 +184,20 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
         overflow: hidden;
     }
 
+    &.ribbon-left {
+        .ribbon-stitch {
+            border-right: 1px solid $ribbonStitch;
+        }
+    }
+
+    &.ribbon-right {
+        .ribbon-stitch {
+            border-left: 1px solid $ribbonStitch;
+        }
+    }
+
     .ribbon-fabric {
+        // border-bottom: 1px solid red;
         position: relative;
         z-index: 2;
 
@@ -89,31 +217,39 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
     .ribbon-center-right {
         width: $ribbonHorizHeight;
         height: $ribbonHorizHeight;
+        margin-right: 5px;
+        margin-left: 5px;
         position: absolute;
         z-index: 1;
         @include rotate(45deg);
     }
 
-    .ribbon-top-right {
+    .ribbon-top-right,
+    .ribbon-bottom-right {
         @include box-shadow(0 5px 10px 0 rgba(black, 0.2));
     }
 
-    .ribbon-top-left {
+    .ribbon-top-left,
+    .ribbon-bottom-left {
         @include box-shadow(5px 0 10px 0 rgba(black, 0.2));
+    }
+
+    .ribbon-center-right,
+    .ribbon-center-left {
+        @include box-shadow(0 0 10px 0 rgba(black, 0.1));
     }
 }
 
-// Red ribbon
+// Ribbon colors
 // **************************************************************************
 
-.ribbon-red {
+.ribbon {
     p, a {
-        color: white;
-        text-shadow: 0 -1px 1px rgba(black, 0.5);
+        color: $ribbonText;
     }
 
     .ribbon-fabric {
-        background-color: $shadowRed;
+        background-color: $ribbonShadow;
     }
 
     .ribbon-top-right,
@@ -122,60 +258,58 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
     .ribbon-bottom-left,
     .ribbon-center-left,
     .ribbon-center-right {
-        background: $shadowRed;
+        background: $ribbonShadow;
     }
 
-    &.ribbon-horizontal {
+    .ribbon-fabric:after {
+        border-top: 1px dashed $ribbonStitch;
+        border-bottom: 1px dashed $ribbonStitch;
+    }
+
+    .ribbon-fabric:before {
+        border-top: 1px dashed $ribbonHighlight;
+        border-bottom: 1px dashed $ribbonHighlight;
+    }
+
+    &.ribbon-right {
+        .ribbon-fabric {
+            @include background-image(linear-gradient(left, $ribbonHighlight, $ribbonShadow));
+        }
+
         .ribbon-fabric:after {
-            border-top: 1px dashed $darkRed;
-            border-bottom: 1px dashed $darkRed;
+            border-left: 1px dashed $ribbonStitch;
         }
 
         .ribbon-fabric:before {
-            border-top: 1px dashed $subtleRed;
-            border-bottom: 1px dashed $subtleRed;
+            border-left: 1px dashed $ribbonHighlight;
+        }
+    }
+
+    &.ribbon-left {
+        .ribbon-fabric {
+            @include background-image(linear-gradient(left, $ribbonShadow, $ribbonHighlight));
         }
 
-        &.ribbon-right {
-            .ribbon-fabric {
-                @include background-image(linear-gradient(left, $brightRed, $shadowRed));
-            }
-
-            .ribbon-fabric:after {
-                border-left: 1px dashed $darkRed;
-            }
-
-            .ribbon-fabric:before {
-                border-left: 1px dashed $subtleRed;
-            }
+        .ribbon-fabric:after {
+            border-right: 1px dashed $ribbonStitch;
         }
 
-        &.ribbon-left {
-            .ribbon-fabric {
-                @include background-image(linear-gradient(left, $shadowRed, $brightRed));
-            }
-
-            .ribbon-fabric:after {
-                border-right: 1px dashed $darkRed;
-            }
-
-            .ribbon-fabric:before {
-                border-right: 1px dashed $subtleRed;
-            }
+        .ribbon-fabric:before {
+            border-right: 1px dashed $ribbonHighlight;
         }
+    }
 
-        &.ribbon-both {
-            .ribbon-fabric {
-                @include background-image(linear-gradient(left, $shadowRed, $brightRed, $brightRed, $shadowRed));
-            }
+    &.ribbon-both {
+        .ribbon-fabric {
+            @include background-image(linear-gradient(left, $ribbonShadow, $ribbonHighlight, $ribbonHighlight, $ribbonShadow));
         }
     }
 }
 
-// Horizontal ribbon
+// Ribbon
 // **************************************************************************
 
-.ribbon-horizontal {
+.ribbon {
 
     height: $ribbonHorizHeight;
 
@@ -191,14 +325,14 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
         &:after {
             top: 5px;
             right: 0;
-            bottom: 6px;
+            bottom: 5px;
             left: 0;
         }
 
         &:before {
             top: 6px;
             right: 1px;
-            bottom: 5px;
+            bottom: 4px;
             left: 1px;
         }
     }
@@ -231,13 +365,23 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
     }
 
     @mixin radii-right {
-        @include border-top-left-radius(4px);
-        @include border-bottom-left-radius(4px);
+        @include border-top-left-radius(20px);
+        @include border-bottom-left-radius(20px);
     }
 
     @mixin radii-left {
-        @include border-top-right-radius(4px);
-        @include border-bottom-right-radius(4px);
+        @include border-top-right-radius(20px);
+        @include border-bottom-right-radius(20px);
+    }
+
+    @mixin radii-right-stitch {
+        @include border-top-left-radius(15px);
+        @include border-bottom-left-radius(15px);
+    }
+
+    @mixin radii-left-stitch {
+        @include border-top-right-radius(15px);
+        @include border-bottom-right-radius(15px);
     }
 
     &.ribbon-right {
@@ -245,7 +389,7 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 
         .ribbon-stitch {
             @include radii-right;
-            padding-right: 22px;
+            padding-right: 26px;
         }
 
         .ribbon-fabric {
@@ -253,8 +397,8 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 
             &:after,
             &:before {
-                @include radii-right;
-                margin-left: 6px;
+                @include radii-right-stitch;
+                margin-left: 5px;
             }
         }
     }
@@ -264,7 +408,7 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 
         .ribbon-stitch {
             @include radii-left;
-            padding-left: 22px;
+            padding-left: 26px;
         }
 
         .ribbon-fabric {
@@ -272,16 +416,16 @@ $darkRed:                #631a15; // hsl(4, 79, 39)
 
             &:after,
             &:before {
-                @include radii-left;
-                margin-right: 6px;
+                @include radii-left-stitch;
+                margin-right: 5px;
             }
         }
     }
 
     &.ribbon-both {
         .ribbon-stitch {
-            padding-right: 22px;
-            padding-left: 22px;
+            padding-right: 26px;
+            padding-left: 26px;
         }
     }
 }

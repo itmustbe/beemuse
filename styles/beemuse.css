@@ -313,6 +313,84 @@
   padding-right: 15px;
 }
 
+.ribbon .ribbon-stitch:after {
+  z-index: 3;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+.ribbon .ribbon-stitch:before {
+  z-index: 3;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+.ribbon .ribbon-stitch:after, .ribbon .ribbon-stitch:before {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(204, 204, 204, 0.4)), color-stop(33.33333%, rgba(204, 204, 204, 0.8)), color-stop(66.66667%, rgba(204, 204, 204, 0.8)), color-stop(100%, rgba(204, 204, 204, 0.4)));
+  background-image: -webkit-linear-gradient(left, rgba(204, 204, 204, 0.4), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.4));
+  background-image: -moz-linear-gradient(left, rgba(204, 204, 204, 0.4), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.4));
+  background-image: -o-linear-gradient(left, rgba(204, 204, 204, 0.4), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.4));
+  background-image: linear-gradient(left, rgba(204, 204, 204, 0.4), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.4));
+}
+
+.ribbon-left .ribbon-stitch:after, .ribbon-left .ribbon-stitch:before {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(204, 204, 204, 0.4)), color-stop(33.33333%, rgba(204, 204, 204, 0.8)), color-stop(66.66667%, rgba(204, 204, 204, 0.8)), color-stop(100%, rgba(204, 204, 204, 0.8)));
+  background-image: -webkit-linear-gradient(left, rgba(204, 204, 204, 0.4), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8));
+  background-image: -moz-linear-gradient(left, rgba(204, 204, 204, 0.4), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8));
+  background-image: -o-linear-gradient(left, rgba(204, 204, 204, 0.4), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8));
+  background-image: linear-gradient(left, rgba(204, 204, 204, 0.4), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8));
+}
+
+.ribbon-right .ribbon-stitch:after, .ribbon-right .ribbon-stitch:before {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(204, 204, 204, 0.8)), color-stop(33.33333%, rgba(204, 204, 204, 0.8)), color-stop(66.66667%, rgba(204, 204, 204, 0.8)), color-stop(100%, rgba(204, 204, 204, 0.4)));
+  background-image: -webkit-linear-gradient(left, rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.4));
+  background-image: -moz-linear-gradient(left, rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.4));
+  background-image: -o-linear-gradient(left, rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.4));
+  background-image: linear-gradient(left, rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.8), rgba(204, 204, 204, 0.4));
+}
+
+.ribbon-out .ribbon-stitch:after, .ribbon-out .ribbon-stitch:before {
+  left: 26px;
+  right: 26px;
+}
+.ribbon-out.ribbon-left .ribbon-stitch:after, .ribbon-out.ribbon-left .ribbon-stitch:before {
+  left: 26px;
+  right: 0;
+}
+.ribbon-out.ribbon-right .ribbon-stitch:after, .ribbon-out.ribbon-right .ribbon-stitch:before {
+  left: 0;
+  right: 26px;
+}
+
+.ribbon-in .ribbon-stitch:after, .ribbon-in .ribbon-stitch:before {
+  left: 6px;
+  right: 6px;
+}
+.ribbon-in.ribbon-left .ribbon-stitch:after, .ribbon-in.ribbon-left .ribbon-stitch:before {
+  left: 6px;
+  right: 0;
+}
+.ribbon-in.ribbon-right .ribbon-stitch:after, .ribbon-in.ribbon-right .ribbon-stitch:before {
+  left: 0;
+  right: 6px;
+}
+
+.ribbon-in-out .ribbon-stitch:after, .ribbon-in-out .ribbon-stitch:before {
+  left: 6px;
+  right: 26px;
+}
+
+.ribbon-out-in .ribbon-stitch:after, .ribbon-out-in .ribbon-stitch:before {
+  left: 26px;
+  right: 6px;
+}
+
 .ribbon {
   cursor: pointer;
   position: relative;
@@ -335,6 +413,12 @@
   position: relative;
   overflow: hidden;
 }
+.ribbon.ribbon-left .ribbon-stitch {
+  border-right: 1px solid #cccccc;
+}
+.ribbon.ribbon-right .ribbon-stitch {
+  border-left: 1px solid #cccccc;
+}
 .ribbon .ribbon-fabric {
   position: relative;
   z-index: 2;
@@ -352,6 +436,8 @@
 .ribbon .ribbon-center-right {
   width: 42px;
   height: 42px;
+  margin-right: 5px;
+  margin-left: 5px;
   position: absolute;
   z-index: 1;
   -webkit-transform: rotate(45deg);
@@ -360,186 +446,193 @@
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.ribbon .ribbon-top-right {
+.ribbon .ribbon-top-right,
+.ribbon .ribbon-bottom-right {
   -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
-.ribbon .ribbon-top-left {
+.ribbon .ribbon-top-left,
+.ribbon .ribbon-bottom-left {
   -webkit-box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
 }
-
-.ribbon-red p, .ribbon-red a {
-  color: white;
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
-}
-.ribbon-red .ribbon-fabric {
-  background-color: #911919;
-}
-.ribbon-red .ribbon-top-right,
-.ribbon-red .ribbon-bottom-right,
-.ribbon-red .ribbon-top-left,
-.ribbon-red .ribbon-bottom-left,
-.ribbon-red .ribbon-center-left,
-.ribbon-red .ribbon-center-right {
-  background: #911919;
-}
-.ribbon-red.ribbon-horizontal .ribbon-fabric:after {
-  border-top: 1px dashed #631a15;
-  border-bottom: 1px dashed #631a15;
-}
-.ribbon-red.ribbon-horizontal .ribbon-fabric:before {
-  border-top: 1px dashed #da5050;
-  border-bottom: 1px dashed #da5050;
-}
-.ribbon-red.ribbon-horizontal.ribbon-right .ribbon-fabric {
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #c73b3c), color-stop(100%, #911919));
-  background-image: -webkit-linear-gradient(left, #c73b3c, #911919);
-  background-image: -moz-linear-gradient(left, #c73b3c, #911919);
-  background-image: -o-linear-gradient(left, #c73b3c, #911919);
-  background-image: linear-gradient(left, #c73b3c, #911919);
-}
-.ribbon-red.ribbon-horizontal.ribbon-right .ribbon-fabric:after {
-  border-left: 1px dashed #631a15;
-}
-.ribbon-red.ribbon-horizontal.ribbon-right .ribbon-fabric:before {
-  border-left: 1px dashed #da5050;
-}
-.ribbon-red.ribbon-horizontal.ribbon-left .ribbon-fabric {
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #911919), color-stop(100%, #c73b3c));
-  background-image: -webkit-linear-gradient(left, #911919, #c73b3c);
-  background-image: -moz-linear-gradient(left, #911919, #c73b3c);
-  background-image: -o-linear-gradient(left, #911919, #c73b3c);
-  background-image: linear-gradient(left, #911919, #c73b3c);
-}
-.ribbon-red.ribbon-horizontal.ribbon-left .ribbon-fabric:after {
-  border-right: 1px dashed #631a15;
-}
-.ribbon-red.ribbon-horizontal.ribbon-left .ribbon-fabric:before {
-  border-right: 1px dashed #da5050;
-}
-.ribbon-red.ribbon-horizontal.ribbon-both .ribbon-fabric {
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #911919), color-stop(33.33333%, #c73b3c), color-stop(66.66667%, #c73b3c), color-stop(100%, #911919));
-  background-image: -webkit-linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
-  background-image: -moz-linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
-  background-image: -o-linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
-  background-image: linear-gradient(left, #911919, #c73b3c, #c73b3c, #911919);
+.ribbon .ribbon-center-right,
+.ribbon .ribbon-center-left {
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
-.ribbon-horizontal {
+.ribbon p, .ribbon a {
+  color: #666666;
+}
+.ribbon .ribbon-fabric {
+  background-color: #f7f7f7;
+}
+.ribbon .ribbon-top-right,
+.ribbon .ribbon-bottom-right,
+.ribbon .ribbon-top-left,
+.ribbon .ribbon-bottom-left,
+.ribbon .ribbon-center-left,
+.ribbon .ribbon-center-right {
+  background: #f7f7f7;
+}
+.ribbon .ribbon-fabric:after {
+  border-top: 1px dashed #cccccc;
+  border-bottom: 1px dashed #cccccc;
+}
+.ribbon .ribbon-fabric:before {
+  border-top: 1px dashed white;
+  border-bottom: 1px dashed white;
+}
+.ribbon.ribbon-right .ribbon-fabric {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ffffff), color-stop(100%, #f7f7f7));
+  background-image: -webkit-linear-gradient(left, #ffffff, #f7f7f7);
+  background-image: -moz-linear-gradient(left, #ffffff, #f7f7f7);
+  background-image: -o-linear-gradient(left, #ffffff, #f7f7f7);
+  background-image: linear-gradient(left, #ffffff, #f7f7f7);
+}
+.ribbon.ribbon-right .ribbon-fabric:after {
+  border-left: 1px dashed #cccccc;
+}
+.ribbon.ribbon-right .ribbon-fabric:before {
+  border-left: 1px dashed white;
+}
+.ribbon.ribbon-left .ribbon-fabric {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #f7f7f7), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(left, #f7f7f7, #ffffff);
+  background-image: -moz-linear-gradient(left, #f7f7f7, #ffffff);
+  background-image: -o-linear-gradient(left, #f7f7f7, #ffffff);
+  background-image: linear-gradient(left, #f7f7f7, #ffffff);
+}
+.ribbon.ribbon-left .ribbon-fabric:after {
+  border-right: 1px dashed #cccccc;
+}
+.ribbon.ribbon-left .ribbon-fabric:before {
+  border-right: 1px dashed white;
+}
+.ribbon.ribbon-both .ribbon-fabric {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #f7f7f7), color-stop(33.33333%, #ffffff), color-stop(66.66667%, #ffffff), color-stop(100%, #f7f7f7));
+  background-image: -webkit-linear-gradient(left, #f7f7f7, #ffffff, #ffffff, #f7f7f7);
+  background-image: -moz-linear-gradient(left, #f7f7f7, #ffffff, #ffffff, #f7f7f7);
+  background-image: -o-linear-gradient(left, #f7f7f7, #ffffff, #ffffff, #f7f7f7);
+  background-image: linear-gradient(left, #f7f7f7, #ffffff, #ffffff, #f7f7f7);
+}
+
+.ribbon {
   height: 42px;
 }
-.ribbon-horizontal .ribbon-stitch {
+.ribbon .ribbon-stitch {
   height: 42px;
 }
-.ribbon-horizontal .ribbon-fabric {
+.ribbon .ribbon-fabric {
   height: 42px;
 }
-.ribbon-horizontal .ribbon-fabric:after {
+.ribbon .ribbon-fabric:after {
   top: 5px;
   right: 0;
-  bottom: 6px;
+  bottom: 5px;
   left: 0;
 }
-.ribbon-horizontal .ribbon-fabric:before {
+.ribbon .ribbon-fabric:before {
   top: 6px;
   right: 1px;
-  bottom: 5px;
+  bottom: 4px;
   left: 1px;
 }
-.ribbon-horizontal .ribbon-top-right,
-.ribbon-horizontal .ribbon-bottom-right,
-.ribbon-horizontal .ribbon-center-right {
+.ribbon .ribbon-top-right,
+.ribbon .ribbon-bottom-right,
+.ribbon .ribbon-center-right {
   right: 9px;
 }
-.ribbon-horizontal .ribbon-top-left,
-.ribbon-horizontal .ribbon-bottom-left,
-.ribbon-horizontal .ribbon-center-left {
+.ribbon .ribbon-top-left,
+.ribbon .ribbon-bottom-left,
+.ribbon .ribbon-center-left {
   left: 9px;
 }
-.ribbon-horizontal .ribbon-top-right,
-.ribbon-horizontal .ribbon-top-left {
+.ribbon .ribbon-top-right,
+.ribbon .ribbon-top-left {
   bottom: 21px;
 }
-.ribbon-horizontal .ribbon-bottom-right,
-.ribbon-horizontal .ribbon-bottom-left {
+.ribbon .ribbon-bottom-right,
+.ribbon .ribbon-bottom-left {
   top: 21px;
 }
-.ribbon-horizontal .ribbon-center-left,
-.ribbon-horizontal .ribbon-center-right {
+.ribbon .ribbon-center-left,
+.ribbon .ribbon-center-right {
   bottom: 0;
 }
-.ribbon-horizontal.ribbon-right {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+.ribbon.ribbon-right {
+  -moz-border-radius-topleft: 20px;
+  -webkit-border-top-left-radius: 20px;
+  border-top-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
-.ribbon-horizontal.ribbon-right .ribbon-stitch {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  padding-right: 22px;
+.ribbon.ribbon-right .ribbon-stitch {
+  -moz-border-radius-topleft: 20px;
+  -webkit-border-top-left-radius: 20px;
+  border-top-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding-right: 26px;
 }
-.ribbon-horizontal.ribbon-right .ribbon-fabric {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+.ribbon.ribbon-right .ribbon-fabric {
+  -moz-border-radius-topleft: 20px;
+  -webkit-border-top-left-radius: 20px;
+  border-top-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
-.ribbon-horizontal.ribbon-right .ribbon-fabric:after, .ribbon-horizontal.ribbon-right .ribbon-fabric:before {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  margin-left: 6px;
+.ribbon.ribbon-right .ribbon-fabric:after, .ribbon.ribbon-right .ribbon-fabric:before {
+  -moz-border-radius-topleft: 15px;
+  -webkit-border-top-left-radius: 15px;
+  border-top-left-radius: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  margin-left: 5px;
 }
-.ribbon-horizontal.ribbon-left {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+.ribbon.ribbon-left {
+  -moz-border-radius-topright: 20px;
+  -webkit-border-top-right-radius: 20px;
+  border-top-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
-.ribbon-horizontal.ribbon-left .ribbon-stitch {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  padding-left: 22px;
+.ribbon.ribbon-left .ribbon-stitch {
+  -moz-border-radius-topright: 20px;
+  -webkit-border-top-right-radius: 20px;
+  border-top-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-left: 26px;
 }
-.ribbon-horizontal.ribbon-left .ribbon-fabric {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+.ribbon.ribbon-left .ribbon-fabric {
+  -moz-border-radius-topright: 20px;
+  -webkit-border-top-right-radius: 20px;
+  border-top-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
-.ribbon-horizontal.ribbon-left .ribbon-fabric:after, .ribbon-horizontal.ribbon-left .ribbon-fabric:before {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  margin-right: 6px;
+.ribbon.ribbon-left .ribbon-fabric:after, .ribbon.ribbon-left .ribbon-fabric:before {
+  -moz-border-radius-topright: 15px;
+  -webkit-border-top-right-radius: 15px;
+  border-top-right-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-right: 5px;
 }
-.ribbon-horizontal.ribbon-both .ribbon-stitch {
-  padding-right: 22px;
-  padding-left: 22px;
+.ribbon.ribbon-both .ribbon-stitch {
+  padding-right: 26px;
+  padding-left: 26px;
 }

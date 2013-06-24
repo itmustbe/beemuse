@@ -99,7 +99,7 @@ h6 { font-size: 11px; }
 // **************************************************************************
 
 .navbar {
-    @include box-shadow(0 0 15px #999);
+    box-shadow: 0 0 15px #999;
 }
 
 .navbar-brand {
@@ -109,14 +109,6 @@ h6 { font-size: 11px; }
 
     .reg {
         font-size: 6px;
-    }
-
-    .navbar-fixed-top & {
-        padding-left: 7px;
-    }
-
-    .navbar-fixed-bottom & {
-        padding-left: 5px;
     }
 }
 
@@ -137,8 +129,8 @@ h6 { font-size: 11px; }
     color: #333;
     @include border;
     background-color: mix(white, #eee);
-    @include background-image(linear-gradient(white, #eee));
-    @include box-shadow(inset 0 1px 0 rgba(white, 0.2), 0 1px 2px rgba(black, 0.1));
+    background-image: linear-gradient(white, #eee);
+    box-shadow: inset 0 1px 0 rgba(white, 0.2), 0 1px 2px rgba(black, 0.1);
 
     &:hover,
     &:focus,
@@ -146,8 +138,24 @@ h6 { font-size: 11px; }
     &.active {
         @include border;
         background-color: mix(white, #dedede);
-        @include background-image(linear-gradient(white, #dedede));
+        background-image: linear-gradient(white, #dedede);
     }
+}
+
+// BS Code
+// **************************************************************************
+
+code {
+    color: #4126c7;
+    background-color: #f4f2fa;
+    font-size: 12px;
+}
+
+// Prettyprint
+// **************************************************************************
+
+ol.linenums {
+    margin-left: 0;
 }
 
 // ITMUSTBE

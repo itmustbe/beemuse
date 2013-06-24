@@ -75,7 +75,7 @@ $ribbonText:                #666; // 40% dark-gray
         }
         &:after,
         &:before {
-            @include background-image(linear-gradient(left, rgba($ribbonStitch, 0.4), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.4)));
+            background-image: linear-gradient(to right, rgba($ribbonStitch, 0.4), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.4));
         }
     }
 }
@@ -83,7 +83,7 @@ $ribbonText:                #666; // 40% dark-gray
     .ribbon-stitch {
         &:after,
         &:before {
-            @include background-image(linear-gradient(left, rgba($ribbonStitch, 0.4), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8)));
+            background-image: linear-gradient(to right, rgba($ribbonStitch, 0.4), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8));
         }
     }
 }
@@ -91,7 +91,7 @@ $ribbonText:                #666; // 40% dark-gray
     .ribbon-stitch {
         &:after,
         &:before {
-            @include background-image(linear-gradient(left, rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.4)));
+            background-image: linear-gradient(to right, rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.8), rgba($ribbonStitch, 0.4));
         }
     }
 }
@@ -273,7 +273,7 @@ $ribbonText:                #666; // 40% dark-gray
 
     &.ribbon-right {
         .ribbon-fabric {
-            @include background-image(linear-gradient(left, $ribbonHighlight, $ribbonShadow));
+            background-image: linear-gradient(to right, $ribbonHighlight, $ribbonShadow);
         }
 
         .ribbon-fabric:after {
@@ -287,7 +287,7 @@ $ribbonText:                #666; // 40% dark-gray
 
     &.ribbon-left {
         .ribbon-fabric {
-            @include background-image(linear-gradient(left, $ribbonShadow, $ribbonHighlight));
+            background-image: linear-gradient(to right, $ribbonShadow, $ribbonHighlight);
         }
 
         .ribbon-fabric:after {
@@ -301,7 +301,7 @@ $ribbonText:                #666; // 40% dark-gray
 
     &.ribbon-both {
         .ribbon-fabric {
-            @include background-image(linear-gradient(left, $ribbonShadow, $ribbonHighlight, $ribbonHighlight, $ribbonShadow));
+            background-image: linear-gradient(to right, $ribbonShadow, $ribbonHighlight, $ribbonHighlight, $ribbonShadow);
         }
     }
 }

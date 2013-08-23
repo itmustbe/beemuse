@@ -1,22 +1,4 @@
-# Folder view configuration files
-.DS_Store
-Desktop.ini
-
-# Thumbnail cache files
-._*
-Thumbs.db
-
-# Files that might appear on external disks
-.Spotlight-V100
-.Trashes
-
-# SASS
+node_modules
+.tmp
 .sass-cache
-
-# Search
-robots.txt
-
-# Yeoman
-bower_components/
-.htaccess
-404.html
+.DS_Store

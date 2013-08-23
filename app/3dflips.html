@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Pure CSS3 3D flips written with Sass and packaged with Bower</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A collection of Twitter Bootstrap components">
+        <meta name="author" content="Elise @ ITMUSTBE, Inc.">
+        <!-- build:css({.tmp,app}) styles/main.css -->
+        <link rel="stylesheet" href="bower_components/prettify/prettify.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+    </head>
+
+    <body>
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Beemuse</a>
+                </div>
+                <div class="collapse navbar-collapse" id="header">
+                    <ul class="nav navbar-nav">
+                        <li><a href="paper">Paper</a></li>
+                        <li><a href="stitches">Stitches</a></li>
+                        <li class="active"><a href="3dflips">3D Flips</a></li>
+                        <li><a href="ribbons">Ribbons</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Beemuse 3D Flips</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="flip" style="width: 240px; height: 180px;">
+                            <a href="#">
+                                <div class="flip-front">
+                                    <img src="images/240x160w.gif" />
+                                </div>
+                                <div class="flip-back">
+                                    <img src="images/240x160g.gif" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="flip" style="width: 240px; height: 180px;">
+                            <a href="#">
+                                <div class="flip-front">
+                                    <img src="images/240x160w.gif" />
+                                </div>
+                                <div class="flip-back">
+                                    <img src="images/240x160g.gif" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <div class="flip" style="width: 52px; height: 80px;">
+                                    <a href="#">
+                                        <div class="flip-front">
+                                            <div class="well">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                        <div class="flip-back">
+                                            <div class="well">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="flip" style="width: 52px; height: 80px;">
+                                    <a href="#">
+                                        <div class="flip-front">
+                                            <div class="well">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                        <div class="flip-back">
+                                            <div class="well">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="flip" style="width: 52px; height: 80px;">
+                                    <a href="#">
+                                        <div class="flip-front">
+                                            <div class="well">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                        <div class="flip-back">
+                                            <div class="well">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="flip" style="width: 52px; height: 80px;">
+                                    <a href="#">
+                                        <div class="flip-front">
+                                            <div class="well">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                        <div class="flip-back">
+                                            <div class="well">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <h3>Usage</h3>
+                        <div class="well">
+                            <p>
+                                Relatively-positioned .flip element (containing absolutely-positioned .flip-front and .flip-back elements)
+                                <strong>requires width and height</strong> to be specified (width, to avoid the flip trigger area from auto-expanding
+                                in its containing element, and height, including a bottom margin of your choosing).
+                                Keep in mind how setting these may affect responsive versions of .flip elements (the width and height
+                                may need to be reset at the appropriate breakpoints).
+                            </p>
+                            <p>
+                                Degrades gracefully (simply shows back or front without animation). IE10 support.
+                            </p>
+                            <p>
+                                Credit: homebrewed as most demos use javascript or don't get it quite right :)</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <h3>HTML</h3>
+<pre class="prettyprint linenums">
+&lt;div class="flip" style="width: X.px; height: X.px;"&gt;
+    &lt;a href="#"&gt;
+        &lt;div class="flip-front"&gt;
+            ...
+        &lt;/div&gt;
+        &lt;div class="flip-back"&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+</pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <h3>SCSS</h3>
+<pre class="prettyprint linenums">
+@import "compass/css3";
+
+/* 3D Flips */
+
+.flip {
+    position: relative;
+    @include perspective(1000);
+    .flip-front, .flip-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include transform-style(preserve-3d);
+        @include backface-visibility(hidden);
+        @include transition(0.75s);
+    }
+    .flip-front {
+        z-index: 5;
+    }
+    .flip-back {
+        z-index: 0;
+        @include rotateY(-180deg);
+    }
+    &amp;:hover .flip-front {
+        z-index: 5;
+        @include rotateY(180deg);
+    }
+    &amp;:hover .flip-back {
+        z-index: 10;
+        @include rotateY(0deg);
+    }
+}
+</pre>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <h3>CSS</h3>
+<pre class="prettyprint linenums">
+.flip {
+    position: relative;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+}
+.flip .flip-front, .flip .flip-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 0.75s;
+    -moz-transition: 0.75s;
+    -o-transition: 0.75s;
+    transition: 0.75s;
+}
+.flip .flip-front {
+    z-index: 5;
+}
+.flip .flip-back {
+    z-index: 0;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.flip:hover .flip-front {
+    z-index: 5;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.flip:hover .flip-back {
+    z-index: 10;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+</pre>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-7">
+                        <p class="author">Designed and built with all the buzz in the world <a href="http://twitter.com/itmustbe">@itmustbe</a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <p class="license">Code licensed under the <a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-fixed-bottom navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footer">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://itmustbe.com"><img src="images/itmustbe.png" class="logo"> ITMUSTBE<span class="reg">&reg;</span></a>
+                </div>
+                <div class="collapse navbar-collapse" id="footer">
+                    <ul class="nav navbar-nav">
+                        <li><a href="http://enlightenedbugs.com">Enlightened Bugs</a></li>
+                        <li><a href="http://enlightenedbugs.com/moments">Buzzy Moments</a></li>
+                        <li><a href="http://savebees.org">Save Bees</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- build:js scripts/main.js -->
+        <script src="bower_components/prettify/prettify.js"></script>
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/bootstrap/bootstrap.js"></script>
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

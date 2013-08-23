@@ -1,0 +1,194 @@
+/****************************************************************************
+ * Beemuse
+ *
+ * Copyright 2013 ITMUSTBE, Inc.
+ * Licensed under the MIT License
+ * http://opensource.org/licenses/MIT
+ *
+ * Designed and built with all the buzz in the world @itmustbe
+****************************************************************************/
+
+// 3D Flips
+@import "3dflips";
+
+// Stitches
+@import "stitches";
+
+// Paper
+@import "paper";
+
+// Ribbons
+@import "ribbons";
+
+/****************************************************************************
+ * Modifies BS defaults along with Beemuse values in less/variables:
+ *
+ * @brand-primary:         #cc0000;
+ * @body-bg:               #eee;
+ * @text-color:            #333;
+ * @link-hover-color:      @link-color;
+ * @headings-font-weight:  400;
+ * @hr-border:             @gray-light;
+****************************************************************************/
+
+// Responsive Media Queries
+// **************************************************************************
+
+// Tiny screen / phone
+$screen-tiny:                480px;
+$screen-phone:               $screen-tiny;
+
+// Small screen / tablet
+$screen-small:               768px;
+$screen-tablet:              $screen-small;
+
+// Medium screen / desktop
+$screen-medium:              992px;
+$screen-desktop:             $screen-medium;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-small-max:           ($screen-medium - 1);
+$screen-tablet-max:          $screen-small-max;
+
+// Large screen / wide desktop
+$screen-large:               1200px;
+$screen-large-desktop:       $screen-large;
+
+// Media mixin based on BS breakpoints above
+@mixin media($type) {
+    // no phone query -- mobile first!
+    @if $type == tablet {
+        @media (min-width: $screen-tablet) { @content }
+    }
+    @if $type == desktop {
+        @media (min-width: $screen-desktop) { @content }
+    }
+    @if $type == wide {
+        @media (min-width: $screen-large-desktop) { @content }
+    }
+}
+
+// Layout
+// **************************************************************************
+
+a:hover,
+a:focus {
+    color: #cc0000; // @todo BS hack
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 75px;
+}
+
+.license {
+    @include media(tablet) {
+        text-align: right;
+    }
+}
+
+// BS Type
+// **************************************************************************
+
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 11px; }
+
+.main {
+    text-shadow: 0 1px 1px white;
+}
+
+.navbar {
+    text-shadow: 0 -1px 1px black;
+}
+
+.tooltip {
+    text-shadow: 0 -1px 1px black;
+}
+
+// BS Wells, BM Stitches, BM Paper
+// **************************************************************************
+
+.well,
+.stitch,
+.paper {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// BS Navbars
+// **************************************************************************
+
+.navbar {
+    box-shadow: 0 0 15px #999;
+}
+
+.navbar-brand {
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    .reg {
+        font-size: 6px;
+    }
+}
+
+// BS Buttons
+// **************************************************************************
+
+.btn {
+    font-weight: 400;
+}
+
+.btn-default {
+    @mixin border {
+        border: 1px solid #bbb;
+        border-bottom-color: #a2a2a2;
+        border-top-color: #d1d1d1;
+    }
+
+    color: #333;
+    @include border;
+    background-color: mix(white, #eee);
+    background-image: linear-gradient(white, #eee);
+    box-shadow: inset 0 1px 0 rgba(white, 0.2), 0 1px 2px rgba(black, 0.1);
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        @include border;
+        background-color: mix(white, #dedede);
+        background-image: linear-gradient(white, #dedede);
+    }
+}
+
+// BS Code
+// **************************************************************************
+
+code {
+    color: #4126c7;
+    background-color: #f4f2fa;
+    font-size: 12px;
+}
+
+// Prettyprint
+// **************************************************************************
+
+ol.linenums {
+    margin-left: 0;
+}
+
+// ITMUSTBE
+// **************************************************************************
+
+.logo {
+    width: 36px;
+    height: 36px;
+    margin-top: -8px;
+    margin-bottom: -8px;
+}

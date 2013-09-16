@@ -169,7 +169,7 @@ module.exports = function (grunt) {
         },
         autoprefixer: {
             options: {
-                browsers: ['last 2 version']
+                browsers: ['> 1%', 'last 2 versions', 'ff 17', 'opera 12.1']
             },
             dist: {
                 files: [{

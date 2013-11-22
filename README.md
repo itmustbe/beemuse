@@ -45,6 +45,7 @@ Bootstrap is customized with the following options (http://getbootstrap.com/cust
 @brand-primary:              #cc0000
 @body-bg:                    #eee
 @headings-font-weight:       400
+@hr-border:                  @gray-light
 ```
 
 Philosophy

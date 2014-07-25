@@ -8,17 +8,21 @@
         <link rel="icon" href="favicon.png">
         <meta name="description" content="A collection of Twitter Bootstrap components">
         <meta name="author" content="Elise @ ITMUSTBE, Inc.">
-        <!-- build:css styles/vendor.css -->
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/prettify/prettify.css">
         <link rel="stylesheet" href="bower_components/bootstrap/bootstrap.css">
+        <!-- endbower -->
         <!-- endbuild -->
-        <!-- build:css({.tmp,app}) styles/main.css -->
+        <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+        <!-- build:js(.) scripts/ie.js -->
         <!--[if lt IE 9]>
-        <script src="scripts/html5shiv.js"></script>
-        <script src="scripts/respond.js"></script>
+            <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+            <script src="bower_components/respond/dest/respond.src.js"></script>
         <![endif]-->
+        <!-- endbuild -->
     </head>
 
     <body>
@@ -307,10 +311,15 @@
             </div>
         </div>
 
-        <!-- build:js scripts/main.js -->
-        <script src="bower_components/prettify/prettify.js"></script>
+        <!-- build:js(.) scripts/vendor.js -->
+        <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/prettify/prettify.js"></script>
         <script src="bower_components/bootstrap/bootstrap.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
     </body>

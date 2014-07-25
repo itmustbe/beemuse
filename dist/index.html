@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sweet CSS3 front end components written with Sass and packaged with Bower</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.png">
+        <meta name="description" content="A collection of Twitter Bootstrap components">
+        <meta name="author" content="Elise @ ITMUSTBE, Inc.">
+        <link rel="stylesheet" href="styles/vendor.css"/>
+        <link rel="stylesheet" href="styles/main.css"/>
+        <!--[if lt IE 9]>
+        <script src="scripts/ie.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Beemuse</a>
+                </div>
+                <div class="collapse navbar-collapse" id="header">
+                    <ul class="nav navbar-nav">
+                        <li><a href="paper">Paper</a></li>
+                        <li><a href="stitches">Stitches</a></li>
+                        <li><a href="3dflips">3D Flips</a></li>
+                        <li><a href="ribbons">Ribbons</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <h2>Beemuse</h2>
+                        <div class="well">
+                            <p>This is a growing collection of framework-agnostic front-end CSS3 components</p>
+                            <p>The latest stable package is <a href="https://github.com/itmustbe/package-beemuse">v0.3.0</a></p>
+                            <p>Written with <a href="http://sass-lang.com">SASS</a> and <a href="https://github.com/ai/autoprefixer">Autoprefixer</a></p>
+                            <p>I use these with <a href="http://getbootstrap.com">Bootstrap</a></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <h2>Install</h2>
+                        <div class="well">
+                            <p><a href="http://bower.io">Bower</a>: <code>bower install beemuse</code></p>
+                            <p><a href="https://github.com/itmustbe/beemuse">GitHub project</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <h3>Paper</h3>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <div class="paper paper-lift">
+                                    <p>Lifted corners</p>
+                                </div>
+                                <div class="paper paper-raise">
+                                    <p>Raised box</p>
+                                </div>
+                                <div class="paper paper-curl-left">
+                                    <p>Curled left corner</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <div class="paper paper-curve-below">
+                                    <p>Horizontal curve below</p>
+                                </div>
+                                <div class="paper paper-curve-vert">
+                                    <p>Vertical curves</p>
+                                </div>
+                                <div class="paper paper-curl-right">
+                                    <p>Curled right corner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p><a class="btn btn-default" href="paper">View details &raquo;</a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <h3>Stitches</h3>
+                        <div class="stitch">
+                            <p>Some ordinary text</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <div class="stitch">
+                                    <p>Some ordinary text</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <div class="stitch">
+                                    <p>Some ordinary text</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p><a class="btn btn-default" href="stitches">View details &raquo;</a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <h3>3D Flips</h3>
+                        <div class="flip" style="width: 240px; height: 180px;">
+                            <a href="#">
+                                <div class="flip-front">
+                                    <img src="images/240x160w.gif" />
+                                </div>
+                                <div class="flip-back">
+                                    <img src="images/240x160g.gif" />
+                                </div>
+                            </a>
+                        </div>
+                        <p><a class="btn btn-default" href="3dflips">View details &raquo;</a></p>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7">
+                        <p class="author">Designed and built with all the buzz in the world <a href="http://twitter.com/itmustbe">@itmustbe</a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5">
+                        <p class="license">Code licensed under the <a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-fixed-bottom navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footer">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://itmustbe.com"><img src="images/itmustbe.png" class="logo"> ITMUSTBE</a>
+                </div>
+                <div class="collapse navbar-collapse" id="footer">
+                    <ul class="nav navbar-nav">
+                        <li><a href="http://enlightenedbugs.com">Enlightened Bugs</a></li>
+                        <li><a href="http://savebees.org">Save Bees</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/vendor.js"></script>
+
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

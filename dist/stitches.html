@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CSS3 stitched containers written with Sass and packaged with Bower</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.png">
+        <meta name="description" content="A collection of Twitter Bootstrap components">
+        <meta name="author" content="Elise @ ITMUSTBE, Inc.">
+        <link rel="stylesheet" href="styles/vendor.css"/>
+        <link rel="stylesheet" href="styles/main.css"/>
+        <!--[if lt IE 9]>
+        <script src="scripts/ie.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Beemuse</a>
+                </div>
+                <div class="collapse navbar-collapse" id="header">
+                    <ul class="nav navbar-nav">
+                        <li><a href="paper">Paper</a></li>
+                        <li class="active"><a href="stitches">Stitches</a></li>
+                        <li><a href="3dflips">3D Flips</a></li>
+                        <li><a href="ribbons">Ribbons</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Beemuse Stitches</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="stitch">
+                            <p>Some ordinary text</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="stitch">
+                            <p>Some ordinary text</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="stitch">
+                            <p>Quite a bit more ordinary text... this is, after all, a perfectly normal div. It'll stretch as far as it can. How far is that? No one knows for sure...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <h3>Usage</h3>
+                        <div class="well">
+                            <p>
+                                Use like a Bootstrap well. Relatively-positioned .stitch element with z-index of 0. Default settings
+                                typically work but special cases (such as combining with 3D Flips) may require adjustments.
+                            </p>
+                            <p>
+                                No IE7 support (no :before or :after pseudo-elements). Note that the gradient within the well itself
+                                supports IE10+ (IE9 and under will get an even mix of the two colors).
+                            </p>
+                            <p>
+                                Credit: <a href="http://www.red-team-design.com">Red Team Design</a> (tweaked a bit)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <h3>HTML</h3>
+<pre class="prettyprint linenums">
+&lt;div class="stitch"&gt;
+    ...
+&lt;/div&gt;
+</pre>
+                    </div>
+                </div>
+                <!--<div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <h3>SCSS</h3>
+<pre class="prettyprint linenums">
+@import "compass/css3";
+
+/* Stitches */
+
+$stitchColor: #ccc; // 80% light-gray
+$stitchGutter: #fff; // white
+$stitchBorder: #ddd; // 87% light-gray
+$stitchBaseEdge: #9a9a9a; // 60% mid-gray
+$stitchTopGradient: #fff; // white
+$stitchBottomGradient: #eee; // 93% off-white
+
+@mixin stitch-container($padding, $radius, $color, $shadow) {
+    position: relative;
+    z-index: 0;
+    padding: $padding;
+    border: 1px solid $color;
+    @include border-radius($radius);
+    @include box-shadow(0 1px 0 0 $shadow);
+}
+@mixin stitch-effect($color, $highlight, $offset, $radius) {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    border: 1px dashed $color;
+    top: $offset;
+    bottom: $offset;
+    left: $offset;
+    right: $offset;
+    @include border-radius($radius);
+    @include box-shadow(0 0 0 1px $highlight);
+}
+
+.stitch {
+    @include stitch-container(19px, 8px, $stitchBorder, $stitchBaseEdge); // padding, border-radius, border-color, box-shadow
+    background-color: mix($stitchTopGradient, $stitchBottomGradient);
+    @include background-image(linear-gradient($stitchTopGradient, $stitchBottomGradient));
+    margin-bottom: 20px;
+}
+.stitch:before {
+    @include stitch-effect($stitchColor, $stitchGutter, 3px, 6px); // stitch color, highlight, offset, border-radius
+}
+</pre>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <h3>CSS</h3>
+<pre class="prettyprint linenums">
+.stitch {
+    position: relative;
+    z-index: 0;
+    padding: 19px;
+    border: 1px solid #dddddd;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 1px 0 0 #9a9a9a;
+    -moz-box-shadow: 0 1px 0 0 #9a9a9a;
+    box-shadow: 0 1px 0 0 #9a9a9a;
+    background-color: #f6f6f6;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #eeeeee));
+    background-image: -webkit-linear-gradient(#ffffff, #eeeeee);
+    background-image: -moz-linear-gradient(#ffffff, #eeeeee);
+    background-image: -o-linear-gradient(#ffffff, #eeeeee);
+    background-image: linear-gradient(#ffffff, #eeeeee);
+    margin-bottom: 20px;
+}
+
+.stitch:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    border: 1px dashed #cccccc;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    right: 3px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 0 0 1px white;
+    -moz-box-shadow: 0 0 0 1px white;
+    box-shadow: 0 0 0 1px white;
+}
+</pre>
+                    </div>
+                </div>-->
+                <hr />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-7">
+                        <p class="author">Designed and built with all the buzz in the world <a href="http://twitter.com/itmustbe">@itmustbe</a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <p class="license">Code licensed under the <a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-fixed-bottom navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footer">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://itmustbe.com"><img src="images/itmustbe.png" class="logo"> ITMUSTBE</a>
+                </div>
+                <div class="collapse navbar-collapse" id="footer">
+                    <ul class="nav navbar-nav">
+                        <li><a href="http://enlightenedbugs.com">Enlightened Bugs</a></li>
+                        <li><a href="http://savebees.org">Save Bees</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/vendor.js"></script>
+
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

@@ -169,7 +169,7 @@ module.exports = function (grunt) {
         },
         autoprefixer: {
             options: {
-                browsers: ['> 1%', 'last 2 versions', 'ff 17', 'opera 12.1']
+                browsers: ['> 1%', 'last 6 versions', 'Firefox ESR', 'Opera 12.1', 'Explorer 8']
             },
             dist: {
                 files: [{
@@ -325,7 +325,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('server', function (target) {
+    grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
         }

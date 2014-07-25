@@ -8,9 +8,11 @@
         <link rel="icon" href="favicon.png">
         <meta name="description" content="A collection of Twitter Bootstrap components">
         <meta name="author" content="Elise @ ITMUSTBE, Inc.">
-        <!-- build:css({.tmp,app}) styles/main.css -->
+        <!-- build:css styles/vendor.css -->
         <link rel="stylesheet" href="bower_components/prettify/prettify.css">
         <link rel="stylesheet" href="bower_components/bootstrap/bootstrap.css">
+        <!-- endbuild -->
+        <!-- build:css({.tmp,app}) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <!--[if lt IE 9]>
@@ -95,20 +97,61 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="paper paper-polar">
+                            <p>Polar</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="paper paper-vintage">
+                            <p>Vintage</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="paper paper-pink">
+                            <p>Pink</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="paper paper-green">
+                            <p>Green</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="paper paper-blue">
+                            <p>Blue</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="paper paper-violet">
+                            <p>Violet</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="paper paper-sm">
+                            <p>Small</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="paper paper-lg">
+                            <p>Large</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-xs-12">
                         <h3>Usage</h3>
                         <div class="well">
                             <p>
-                                Use like a Bootstrap well. Relatively-positioned .paper element.
-                             </p>
-                            <p>
-                                Bootstrap 3 (wip branch): note iOS z-index stacking context issues and <a href="http://itmustbe.com/code/2013/06/13/problems-with-bootstrap-3-and-z-index-on-ios/">what to do</a>.
+                                Use like a Bootstrap well (it stretches to fill any space, so place it inside something like BS grid columns for sizing). Relatively-positioned .paper element.
                             </p>
                             <p>
                                 No IE7 support (no :before or :after pseudo-elements). No IE8 support either (no RGBA support).
                             </p>
                             <p>
-                                Credit: <a href="http://nicolasgallagher.com/css-drop-shadows-without-images">Nicolas Gallagher</a> (tweaked a bit)
+                                Credit: <a href="http://nicolasgallagher.com/css-drop-shadows-without-images">Nicolas Gallagher</a> (tweaked a fair bit)
                             </p>
                         </div>
                     </div>
@@ -169,8 +212,6 @@
                     <div class="col-xs-12 col-md-6">
                         <h3>SCSS</h3>
 <pre class="prettyprint linenums">
-@import "compass/css3";
-
 /* Paper */
 
 $paperBackground: #fafafa;
@@ -184,7 +225,7 @@ $paperInset: rgba(128, 128, 128, 0.1);
     margin-bottom: 20px;
     background: $paperBackground;
     border: 1px solid $paperBackground;
-    @include box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $paperInset inset);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $paperInset inset;
     &:before,
     &:after {
         content: "";
@@ -203,22 +244,22 @@ $paperInset: rgba(128, 128, 128, 0.1);
         height: 20%;
         max-width: 300px;
         max-height: 100px;
-        @include box-shadow(0 15px 10px rgba(31, 31, 31, 0.7));
+        box-shadow: 0 15px 10px rgba(31, 31, 31, 0.7);
     }
     &:before {
         left: 10px;
-        @include rotate(-3deg);
+        transform: rotate(-4deg);
     }
     &:after {
         right: 10px;
-        @include rotate(3deg);
+        transform: rotate(4deg);
     }
 }
 
 // Curl corners
 
 .paper-curl {
-    @include border-radius(0 0 120px 120px, 0 0 6px 6px);
+    border-radius: 0 0 120px 120px / 0 0 6px 6px;
     &:before,
     &:after {
         bottom: 12px;
@@ -226,22 +267,24 @@ $paperInset: rgba(128, 128, 128, 0.1);
         height: 55%;
         max-width: 200px;
         max-height: 100px;
-        @include box-shadow(0 8px 12px rgba(31, 31, 31, 0.5));
+        box-shadow: 0 8px 14px rgba(31, 31, 31, 0.5);
     }
     &:before {
-        left: 10px;
-        @include transform(skew(-8deg) rotate(-3deg));
+        left: 6px;
+        transform: skew(-8deg);
+        transform: rotate(-3deg);
     }
     &:after {
-        right: 10px;
-        @include transform(skew(8deg) rotate(3deg));
+        left: 6px;
+        transform: skew(8deg);
+        transform: rotate(3deg);
     }
 }
 .paper-curl-left {
-    @include border-radius(0 0 0 120px, 0 0 0 6px);
+    border-radius: 0 0 0 120px / 0 0 0 6px;
 }
 .paper-curl-right {
-    @include border-radius(0 0 120px 0, 0 0 6px 0);
+    border-radius: 0 0 120px 0 / 0 0 6px 0;
 }
 .paper-curl-left,
 .paper-curl-right {
@@ -260,13 +303,13 @@ $paperInset: rgba(128, 128, 128, 0.1);
     left: 0;
     width: 100%;
     height: 100%;
-    @include box-shadow(0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3));
+    box-shadow: 0 16px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
 }
 
 // Curves
 
 .paper-curve:before {
-    @include box-shadow(0 0 15px rgba(0,0,0,0.6));
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 .paper-curve-left,
 .paper-curve-right {
@@ -274,7 +317,7 @@ $paperInset: rgba(128, 128, 128, 0.1);
         @extend .paper-curve:before;
         top: 10px;
         bottom: 10px;
-        @include border-radius(10px, 100px);
+        border-radius: 10px / 100px;
     }
 }
 .paper-curve-left {
@@ -301,7 +344,7 @@ $paperInset: rgba(128, 128, 128, 0.1);
         @extend .paper-curve:before;
         left: 10px;
         right: 10px;
-        @include border-radius(100px, 10px);
+        border-radius: 100px / 10px;
     }
 }
 .paper-curve-above {
@@ -327,14 +370,14 @@ $paperInset: rgba(128, 128, 128, 0.1);
                     <div class="col-xs-12 col-md-6">
                         <h3>CSS</h3>
 <pre class="prettyprint linenums">
+/* Vendor prefixes not included */
+
 .paper {
     position: relative;
     padding: 19px;
     margin-bottom: 20px;
     background: #fafafa;
     border: 1px solid #fafafa;
-    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
-    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
 }
 .paper:before, .paper:after {
@@ -349,30 +392,18 @@ $paperInset: rgba(128, 128, 128, 0.1);
     height: 20%;
     max-width: 300px;
     max-height: 100px;
-    -webkit-box-shadow: 0 15px 10px rgba(31, 31, 31, 0.7);
-    -moz-box-shadow: 0 15px 10px rgba(31, 31, 31, 0.7);
     box-shadow: 0 15px 10px rgba(31, 31, 31, 0.7);
 }
 .paper-lift:before {
     left: 10px;
-    -webkit-transform: rotate(-3deg);
-    -moz-transform: rotate(-3deg);
-    -ms-transform: rotate(-3deg);
-    -o-transform: rotate(-3deg);
-    transform: rotate(-3deg);
+    transform: rotate(-4deg);
 }
 .paper-lift:after {
     right: 10px;
-    -webkit-transform: rotate(3deg);
-    -moz-transform: rotate(3deg);
-    -ms-transform: rotate(3deg);
-    -o-transform: rotate(3deg);
-    transform: rotate(3deg);
+    transform: rotate(4deg);
 }
 
 .paper-curl {
-    -webkit-border-radius: 0 0;
-    -moz-border-radius: 0 0 120px 120px / 0 0 6px 6px;
     border-radius: 0 0 120px 120px / 0 0 6px 6px;
 }
 .paper-curl:before, .paper-curl-left:before,
@@ -383,38 +414,26 @@ $paperInset: rgba(128, 128, 128, 0.1);
     height: 55%;
     max-width: 200px;
     max-height: 100px;
-    -webkit-box-shadow: 0 8px 12px rgba(31, 31, 31, 0.5);
-    -moz-box-shadow: 0 8px 12px rgba(31, 31, 31, 0.5);
-    box-shadow: 0 8px 12px rgba(31, 31, 31, 0.5);
+    box-shadow: 0 8px 14px rgba(31, 31, 31, 0.5);
 }
 .paper-curl:before, .paper-curl-left:before,
 .paper-curl-right:before {
-    left: 10px;
-    -webkit-transform: skew(-8deg) rotate(-3deg);
-    -moz-transform: skew(-8deg) rotate(-3deg);
-    -ms-transform: skew(-8deg) rotate(-3deg);
-    -o-transform: skew(-8deg) rotate(-3deg);
-    transform: skew(-8deg) rotate(-3deg);
+    left: 6px;
+    transform: skew(-8deg);
+    transform: rotate(-3deg);
 }
 .paper-curl:after, .paper-curl-left:after,
 .paper-curl-right:after {
-    right: 10px;
-    -webkit-transform: skew(8deg) rotate(3deg);
-    -moz-transform: skew(8deg) rotate(3deg);
-    -ms-transform: skew(8deg) rotate(3deg);
-    -o-transform: skew(8deg) rotate(3deg);
-    transform: skew(8deg) rotate(3deg);
+    right: 6px;
+    transform: skew(8deg);
+    transform: rotate(3deg);
 }
 
 .paper-curl-left {
-    -webkit-border-radius: 0 0;
-    -moz-border-radius: 0 0 0 120px / 0 0 0 6px;
     border-radius: 0 0 0 120px / 0 0 0 6px;
 }
 
 .paper-curl-right {
-    -webkit-border-radius: 0 0;
-    -moz-border-radius: 0 0 120px 0 / 0 0 6px 0;
     border-radius: 0 0 120px 0 / 0 0 6px 0;
 }
 
@@ -423,17 +442,13 @@ $paperInset: rgba(128, 128, 128, 0.1);
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
-    -moz-box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
-    box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
+    box-shadow: 0 16px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
 }
 
 .paper-curve:before, .paper-curve-left:before, .paper-curve-vert:before,
 .paper-curve-right:before, .paper-curve-above:before,
 .paper-curve-below:before,
 .paper-curve-horiz:before {
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
@@ -441,8 +456,6 @@ $paperInset: rgba(128, 128, 128, 0.1);
 .paper-curve-right:before {
     top: 10px;
     bottom: 10px;
-    -webkit-border-radius: 10px 100px;
-    -moz-border-radius: 10px / 100px;
     border-radius: 10px / 100px;
 }
 
@@ -465,8 +478,6 @@ $paperInset: rgba(128, 128, 128, 0.1);
 .paper-curve-horiz:before {
     left: 10px;
     right: 10px;
-    -webkit-border-radius: 100px 10px;
-    -moz-border-radius: 100px / 10px;
     border-radius: 100px / 10px;
 }
 
@@ -519,7 +530,7 @@ $paperInset: rgba(128, 128, 128, 0.1);
 
         <!-- build:js scripts/main.js -->
         <script src="bower_components/prettify/prettify.js"></script>
-        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/bootstrap/bootstrap.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->

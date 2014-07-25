@@ -8,9 +8,11 @@
         <link rel="icon" href="favicon.png">
         <meta name="description" content="A collection of Twitter Bootstrap components">
         <meta name="author" content="Elise @ ITMUSTBE, Inc.">
-        <!-- build:css({.tmp,app}) styles/main.css -->
+        <!-- build:css styles/vendor.css -->
         <link rel="stylesheet" href="bower_components/prettify/prettify.css">
         <link rel="stylesheet" href="bower_components/bootstrap/bootstrap.css">
+        <!-- endbuild -->
+        <!-- build:css({.tmp,app}) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <!--[if lt IE 9]>
@@ -48,9 +50,9 @@
                         <h2>Beemuse</h2>
                         <div class="well">
                             <p>This is a growing collection of framework-agnostic front-end CSS3 components</p>
-                            <p>The latest stable package is: <a href="https://github.com/itmustbe/package-beemuse">v0.2.1</a></p>
-                            <p>Dependencies: <a href="http://compass-style.org">Compass</a> (and thus <a href="http://sass-lang.com">SASS</a>)</p>
-                            <p>Suggestions: use with <a href="http://foundation.zurb.com">Foundation</a> or <a href="https://github.com/twitter/bootstrap">Bootstrap</a></p>
+                            <p>The latest stable package is <a href="https://github.com/itmustbe/package-beemuse">v0.3.0</a></p>
+                            <p>Written with <a href="http://sass-lang.com">SASS</a> and <a href="https://github.com/ai/autoprefixer">Autoprefixer</a> (no Javascript)</p>
+                            <p>I use these with <a href="http://getbootstrap.com">Bootstrap</a></p>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
@@ -72,8 +74,8 @@
                                 <div class="paper paper-raise">
                                     <p>Raised box</p>
                                 </div>
-                                <div class="paper paper-curl">
-                                    <p>Curled corners</p>
+                                <div class="paper paper-curl-left">
+                                    <p>Curled left corner</p>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
@@ -83,8 +85,8 @@
                                 <div class="paper paper-curve-vert">
                                     <p>Vertical curves</p>
                                 </div>
-                                <div class="paper paper-curve-left">
-                                    <p>Vertical curve left</p>
+                                <div class="paper paper-curl-right">
+                                    <p>Curled right corner</p>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +159,7 @@
 
         <!-- build:js scripts/main.js -->
         <script src="bower_components/prettify/prettify.js"></script>
-        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/bootstrap/bootstrap.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->

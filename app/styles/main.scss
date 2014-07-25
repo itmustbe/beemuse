@@ -112,9 +112,9 @@ h6 { font-size: 11px; }
 // BS Wells, BM Stitches, BM Paper
 // **************************************************************************
 
-.well,
-.stitch,
-.paper {
+.well >,
+.stitch >,
+.paper > {
     p:last-child {
         margin-bottom: 0;
     }

@@ -1,27 +1,38 @@
-@import "compass/css3";
-
 /****************************************************************************
  * Beemuse: Paper
  *
- * Copyright 2013 ITMUSTBE, Inc.
+ * Copyright 2014 ITMUSTBE, Inc.
  * Licensed under the MIT License
  * http://opensource.org/licenses/MIT
  *
  * Designed and built with all the buzz in the world @itmustbe
 ****************************************************************************/
 
-$paperBackground: #fafafa;
-$paperInset: rgba(128, 128, 128, 0.1);
+// Colors
+
+$white-light: #fafafa;
+$white-dark: rgba(128, 128, 128, 0.1);
+$vintage-light: #faf8f0;
+$vintage-dark: rgba(128, 117, 64, 0.1);
+$pink-light: #faf0f0;
+$pink-dark: rgba(128, 64, 64, 0.1);
+$green-light: #f3faf0;
+$green-dark: rgba(85, 128, 64, 0.1);
+$blue-light: #f0f6fa;
+$blue-dark: rgba(64, 106, 128, 0.1);
+$violet-light: #f2f0fa;
+$violet-dark: rgba(74, 64, 128, 0.1);
 
 // Paper
 
 .paper {
   position: relative;
+  min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background: $paperBackground;
-  border: 1px solid $paperBackground;
-  @include box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $paperInset inset);
+  background-color: $white-light;
+  border: 1px solid $white-light;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $white-dark inset;
   &:before,
   &:after {
     content: "";
@@ -30,7 +41,51 @@ $paperInset: rgba(128, 128, 128, 0.1);
   }
 }
 
-// Lift corners
+// Paper sizes
+.paper-lg {
+  padding: 24px;
+}
+.paper-sm {
+  padding: 9px;
+}
+.paper-photo {
+  padding: 0;
+}
+
+// Paper colors
+
+.paper.paper-polar {
+  background-color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $white-dark inset;
+}
+.paper.paper-vintage {
+  background-color: $vintage-light;
+  border: 1px solid $vintage-light;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $vintage-dark inset;
+}
+.paper.paper-pink {
+  background-color: $pink-light;
+  border: 1px solid $pink-light;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $pink-dark inset;
+}
+.paper.paper-green {
+  background-color: $green-light;
+  border: 1px solid $green-light;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $green-dark inset;
+}
+.paper.paper-blue {
+  background-color: $blue-light;
+  border: 1px solid $blue-light;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $blue-dark inset;
+}
+.paper.paper-violet {
+  background-color: $violet-light;
+  border: 1px solid $violet-light;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px $violet-dark inset;
+}
+
+// Lift
 
 .paper-lift {
   &:before,
@@ -40,22 +95,32 @@ $paperInset: rgba(128, 128, 128, 0.1);
     height: 20%;
     max-width: 300px;
     max-height: 100px;
-    @include box-shadow(0 15px 10px rgba(31, 31, 31, 0.7));
+    box-shadow: 0 15px 10px rgba(31, 31, 31, 0.7);
   }
   &:before {
     left: 10px;
-    @include rotate(-3deg);
+    transform: rotate(-4deg);
   }
   &:after {
     right: 10px;
-    @include rotate(3deg);
+    transform: rotate(4deg);
   }
 }
 
-// Curl corners
+// Raise
+
+.paper-raise:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 16px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3);
+}
+
+// Curl
 
 .paper-curl {
-  @include border-radius(0 0 120px 120px, 0 0 6px 6px);
+  border-radius: 0 0 120px 120px / 0 0 6px 6px;
   &:before,
   &:after {
     bottom: 12px;
@@ -63,22 +128,24 @@ $paperInset: rgba(128, 128, 128, 0.1);
     height: 55%;
     max-width: 200px;
     max-height: 100px;
-    @include box-shadow(0 8px 12px rgba(31, 31, 31, 0.5));
+    box-shadow: 0 8px 14px rgba(31, 31, 31, 0.5);
   }
   &:before {
-    left: 10px;
-    @include transform(skew(-8deg) rotate(-3deg));
+    left: 6px;
+    transform: skew(-8deg);
+    transform: rotate(-3deg);
   }
   &:after {
-    right: 10px;
-    @include transform(skew(8deg) rotate(3deg));
+    right: 6px;
+    transform: skew(8deg);
+    transform: rotate(3deg);
   }
 }
 .paper-curl-left {
-  @include border-radius(0 0 0 120px, 0 0 0 6px);
+  border-radius: 0 0 0 120px / 0 0 0 6px;
 }
 .paper-curl-right {
-  @include border-radius(0 0 120px 0, 0 0 6px 0);
+  border-radius: 0 0 120px 0 / 0 0 6px 0;
 }
 .paper-curl-left,
 .paper-curl-right {
@@ -90,20 +157,10 @@ $paperInset: rgba(128, 128, 128, 0.1);
   }
 }
 
-// Raise
-
-.paper-raise:before {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  @include box-shadow(0 15px 10px -10px rgba(31, 31, 31, 0.5), 0 1px 4px rgba(31, 31, 31, 0.3));
-}
-
-// Curves
+// Curve
 
 .paper-curve:before {
-  @include box-shadow(0 0 15px rgba(0,0,0,0.6));
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 .paper-curve-left,
 .paper-curve-right {
@@ -111,7 +168,7 @@ $paperInset: rgba(128, 128, 128, 0.1);
     @extend .paper-curve:before;
     top: 10px;
     bottom: 10px;
-    @include border-radius(10px, 100px);
+    border-radius: 10px / 100px;
   }
 }
 .paper-curve-left {
@@ -138,7 +195,7 @@ $paperInset: rgba(128, 128, 128, 0.1);
     @extend .paper-curve:before;
     left: 10px;
     right: 10px;
-    @include border-radius(100px, 10px);
+    border-radius: 100px / 10px;
   }
 }
 .paper-curve-above {

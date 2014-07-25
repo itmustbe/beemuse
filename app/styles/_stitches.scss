@@ -1,9 +1,7 @@
-@import "compass/css3";
-
 /****************************************************************************
  * Beemuse: Stitches
  *
- * Copyright 2013 ITMUSTBE, Inc.
+ * Copyright 2014 ITMUSTBE, Inc.
  * Licensed under the MIT License
  * http://opensource.org/licenses/MIT
  *
@@ -22,8 +20,8 @@ $stitchBottomGradient: #eee; // 93% off-white
   z-index: 0;
   padding: $padding;
   border: 1px solid $color;
-  @include border-radius($radius);
-  @include box-shadow(0 1px 0 0 $shadow);
+  border-radius: $radius;
+  box-shadow: 0 1px 0 0 $shadow;
 }
 @mixin stitch-effect($color, $highlight, $offset, $radius) {
   content: '';
@@ -34,14 +32,14 @@ $stitchBottomGradient: #eee; // 93% off-white
   bottom: $offset;
   left: $offset;
   right: $offset;
-  @include border-radius($radius);
-  @include box-shadow(0 0 0 1px $highlight);
+  border-radius: $radius;
+  box-shadow: 0 0 0 1px $highlight;
 }
 
 .stitch {
   @include stitch-container(19px, 8px, $stitchBorder, $stitchBaseEdge); // padding, border-radius, border-color, box-shadow
   background-color: mix($stitchTopGradient, $stitchBottomGradient);
-  @include background-image(linear-gradient($stitchTopGradient, $stitchBottomGradient));
+  background-image: linear-gradient($stitchTopGradient, $stitchBottomGradient);
   margin-bottom: 20px;
 }
 .stitch:before {

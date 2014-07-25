@@ -1,9 +1,7 @@
-@import "compass/css3";
-
 /****************************************************************************
  * Beemuse: Ribbons
  *
- * Copyright 2013 ITMUSTBE, Inc.
+ * Copyright 2014 ITMUSTBE, Inc.
  * Licensed under the MIT License
  * http://opensource.org/licenses/MIT
  *
@@ -172,8 +170,8 @@ $ribbonText:                #666; // 40% dark-gray
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    @include inline-block;
-    @include transition(all, 0.3s, cubic-bezier(0.12, 0.89, 0.83, 0.67), false);
+    display: inline-block;
+    transition: 0.3s cubic-bezier(.12,.89,.83,.67);
 
     p, a {
         display: block;
@@ -221,22 +219,22 @@ $ribbonText:                #666; // 40% dark-gray
         margin-left: 5px;
         position: absolute;
         z-index: 1;
-        @include rotate(45deg);
+        transform: rotate(45deg);
     }
 
     .ribbon-top-right,
     .ribbon-bottom-right {
-        @include box-shadow(0 5px 10px 0 rgba(black, 0.2));
+        box-shadow: 0 5px 10px 0 rgba(black, 0.2);
     }
 
     .ribbon-top-left,
     .ribbon-bottom-left {
-        @include box-shadow(5px 0 10px 0 rgba(black, 0.2));
+        box-shadow: 5px 0 10px 0 rgba(black, 0.2);
     }
 
     .ribbon-center-right,
     .ribbon-center-left {
-        @include box-shadow(0 0 10px 0 rgba(black, 0.1));
+        box-shadow: 0 0 10px 0 rgba(black, 0.1);
     }
 }
 
@@ -365,23 +363,23 @@ $ribbonText:                #666; // 40% dark-gray
     }
 
     @mixin radii-right {
-        @include border-top-left-radius(20px);
-        @include border-bottom-left-radius(20px);
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
     }
 
     @mixin radii-left {
-        @include border-top-right-radius(20px);
-        @include border-bottom-right-radius(20px);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
 
     @mixin radii-right-stitch {
-        @include border-top-left-radius(15px);
-        @include border-bottom-left-radius(15px);
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
     }
 
     @mixin radii-left-stitch {
-        @include border-top-right-radius(15px);
-        @include border-bottom-right-radius(15px);
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
     }
 
     &.ribbon-right {

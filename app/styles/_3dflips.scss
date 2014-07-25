@@ -1,9 +1,7 @@
-@import "compass/css3";
-
 /****************************************************************************
  * Beemuse: 3D Flips
  *
- * Copyright 2013 ITMUSTBE, Inc.
+ * Copyright 2014 ITMUSTBE, Inc.
  * Licensed under the MIT License
  * http://opensource.org/licenses/MIT
  *
@@ -12,28 +10,28 @@
 
 .flip {
   position: relative;
-  @include perspective(1000);
+  perspective: 1000;
   .flip-front, .flip-back {
     position: absolute;
     top: 0;
     left: 0;
-    @include transform-style(preserve-3d);
-    @include backface-visibility(hidden);
-    @include transition(0.75s);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition-duration: 0.75s;
   }
   .flip-front {
     z-index: 5;
   }
   .flip-back {
     z-index: 0;
-    @include rotateY(-180deg);
+    transform: rotateY(-180deg);
   }
   &:hover .flip-front {
     z-index: 5;
-    @include rotateY(180deg);
+    transform: rotateY(180deg);
   }
   &:hover .flip-back {
     z-index: 10;
-    @include rotateY(0deg);
+    transform: rotateY(0deg);
   }
 }

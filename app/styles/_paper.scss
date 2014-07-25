@@ -10,18 +10,18 @@
 
 // Colors
 
-$white-light: #fafafa;
-$white-dark: rgba(128, 128, 128, 0.1);
-$vintage-light: #faf8f0;
-$vintage-dark: rgba(128, 117, 64, 0.1);
-$pink-light: #faf0f0;
-$pink-dark: rgba(128, 64, 64, 0.1);
-$green-light: #f3faf0;
-$green-dark: rgba(85, 128, 64, 0.1);
-$blue-light: #f0f6fa;
-$blue-dark: rgba(64, 106, 128, 0.1);
-$violet-light: #f2f0fa;
-$violet-dark: rgba(74, 64, 128, 0.1);
+$white-light:     #fafafa;
+$white-dark:      rgba(128, 128, 128, 0.1);
+$vintage-light:   #faf8f0;
+$vintage-dark:    rgba(128, 117, 64, 0.1);
+$pink-light:      #faf0f0;
+$pink-dark:       rgba(128, 64, 64, 0.1);
+$green-light:     #f3faf0;
+$green-dark:      rgba(85, 128, 64, 0.1);
+$blue-light:      #f0f6fa;
+$blue-dark:       rgba(64, 106, 128, 0.1);
+$violet-light:    #f2f0fa;
+$violet-dark:     rgba(74, 64, 128, 0.1);
 
 // Paper
 
@@ -42,6 +42,7 @@ $violet-dark: rgba(74, 64, 128, 0.1);
 }
 
 // Paper sizes
+
 .paper-lg {
   padding: 24px;
 }

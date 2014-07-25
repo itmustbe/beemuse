@@ -1,5 +1,5 @@
-node_modules
-dist
-.tmp
-.sass-cache
 .DS_Store
+.sass-cache
+.tmp
+node_modules
+test

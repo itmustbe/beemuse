@@ -1,9 +1,9 @@
 {
-  "name": "yo-webapp",
-  "version": "0.0.0",
+  "name": "beemuse",
+  "private": true,
   "dependencies": {
-    "jquery": "~1.11.0",
-    "html5shiv": "~3.7.0",
+    "jquery": "~1.11.1",
+    "html5shiv": "~3.7.2",
     "respond": "~1.4.2"
   },
   "devDependencies": {}
